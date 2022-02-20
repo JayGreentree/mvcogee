@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <title>{layout:title} | {site_name}</title>
+
+
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="{if layout:desc}{layout:desc}{if:else}{/if}">
+    <meta name="author" content="{site_name}">
+
+    <!--[if lt IE 9]>
+          <script type='text/javascript' src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+          <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- link href='//fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic|Open+Sans:100,200,300,400,600,700,800,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'-->
+    <!-- styles -->
+    <!--link href='//fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic|Open+Sans:100,200,300,400,600,700,800,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'-->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/audioplayer.css">
+    <link rel="stylesheet" href="/assets/css/site-helpers.css">
+    <link rel="stylesheet" href="/assets/css/icon-font.css">
+    <link rel="stylesheet" href="/assets/css/events.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/font-awesome.css">
+    <style>
+        .top-home {
+            background: #013852 url("") no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        .gradient,
+        .gradient:after {
+            filter: none;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+
+    <div id='wrapper' class='page-id-{{ page.id }} template-{{ page.class }}'>
+
+        <!-- begin Countdown >
+   <div class="announcement-bar">
+    <div id="churchonline_counter">
+      <div class="live">Live Now</div>
+
+      <ul class="time">
+        <li><span>Next Service in:</span></li>
+        <li><span class="days btn-live"></span> <span class="label">days</span></li>
+        <li><span class="hours btn-live"></span> <span class="label">hrs</span></li>
+        <li><span class="minutes btn-live"></span> <span class="label">mins</span></li>
+        <li><span class="seconds btn-live"></span> <span class="label">secs</span></li>
+      </ul>
+    </div>
+  </div>
+< End Countdown -->
+        <div class='header' id='chapel-header-bar'>
+
+            <div id='search-area'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-md-8 col-md-offset-2'>
+                            <div class="searchTop">
+                                <form id="search-form-top" class='clearfix' action='?' method='get'>
+                                    <input class="clear-click" id='search-site-input' placeholder='Search the site' type='text' name='q' value=''>
+                                    <a id="search_query_btn" href="javascript:void(0);" class="icon-right-4"></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id='floating-bar-nav'>
+
+                <div id='top-quick-menu' class=''>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col-lg-12'>
+                                <div class="logo pull-left">
+                                    <a href="/" class="crosspoint_logo" title='{{ site.title }}'>
+                                        <img id="logo-mark" src='/assets/css/img/logo.svg' alt="logo">
+                                    </a>
+                                </div>
+                                <div class="top-nav-right pull-right">
+                                    <a id="menu-btn" href="javascript:void(0);" title="Menu"><span id="menu-btn-icon" class="icon-fw icon-menu-3"></span> Menu</a>
+                                    <a id="events-btn" href="/events/" title="Events"><span class="icon-fw icon-calendar-1"></span><span class="hidden-xs"> Events</span></a>
+                                    <a id="give-btn" class="hidden-xs" href="/give/" title="Giving"><span class="icon-fw icon-heart"></span> Giving</a>
+                                    <a id="search-btn" href="javascript:void(0);" title="Search"><span id="menu-search-btn-icon" class="icon-fw icon-zoom-2"></span><span class="hidden-xs"> Search</span></a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id='nav-main-menu' class='nav-content-holder'>
+                    <div class='nav-top-border'></div>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <ul id="nav-pullout">
+                                    <li id="nav_about" class='dropdown'><a href='#' id='about-nav'>Who We Are</a>
+                                        <ul>
+                                            <li><a href='/about/' style="color: white;">About Us </a></li>
+                                            <li><a href='/about/staff/' style="color: white;">Meet The Team  </a></li>
+                                            <li><a href='/about/beliefs/' style="color: white;">What We Believe </a></li>
+                                            <li><a href='/about/contact/' style="color: white;">Contact Us </a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="nav_locations" class='dropdown'><a href='#' id='locations-nav'>Locations</a>
+                                        <ul>
+                                            <li><a href='/locations/vincennes/' style="color: white;">Vincennes </a></li>
+                                            <li><a href='/locations/bicknell/' style="color: white;">Bicknell  </a></li>
+                                            <li><a href='/locations/french-creole/' style="color: white;">French (Creole) </a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="nav_connect" class='dropdown'><a href='#'>Ministries</a>
+                                        <ul>
+                                            <li><a href='/ministries/kids/' style="color: white;">Kids </a></li>
+                                            <li><a href='/ministries/students/' style="color: white;">Students </a></li>
+                                            <li><a href='/ministries/life-groups/' style="color: white;">LIFE Groups </a></li>
+                                            <li><a href='/ministries/global-missions/' style="color: white;">Global Missions </a></li>
+                                            <li><a href='/ministries/celebrate-recovery/' style="color: white;">Celebrate Recovery </a></li>
+                                            <li><a href='/ministries/mobile-food-pantry/' style="color: white;">Mobile Food Pantry </a></li>
+                                            <li><a href='/ministries/3d-groups/' style="color: white;">3D Groups </a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="nav_events" class='dropdown'><a href='#'>Events</a>
+                                        <ul>
+                                            <li><a href='/events/' style="color: white;">Events </a></li>
+                                            <li><a href='/serve/' style="color: white;">Serve </a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="nav_outreach" class='dropdown'><a href='#'>Give</a>
+                                        <ul>
+                                            <!--li ><a href='/give/why-we-give/' style="color: white;">Why We Give </a></li-->
+                                            <li><a href='/give/' style="color: white;">Give Now </a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="nav_resources" class='dropdown'><a href='#'>Watch</a>
+                                        <ul>
+                                            <li><a href='/watch/' style="color: white;">Sermons </a></li>
+                                            <li><a href='/live/' style="color: white;">Live </a></li>
+                                            <!--li ><a href='/stories/' >Stories </a></li-->
+                                        </ul>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div id='top-area' class='top-home top-short-header'>
+
+                <div class='top-cover-gradient-fromtop gradient'></div>
+                <div class='top-cover-gradient-frombot gradient '></div>
+
+
+                <div class='container medium-header header-banner no-subtitle'>
+
+                    <div class='row center-row'>
+                        <div class='col-lg-12 center-col'>
+
+                            <h1>{layout:title}</h1>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id='main' role='main'>
+
+
+
+
+            {layout:contents}
+
+        </div>
+        <!-- end Main -->
+
+        <div id="footer-social-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12  col-sm-4 col-md-4 ">
+
+                        <div id="footer-address">
+                            <h4>Mailing Address</h4>
+                            <p>8123 East Manley Dr.,<br>Prescott Valley, AZ 86314<br> Phone: 928.772.5713
+                                <!--&nbsp;|&nbsp; Fax: 716.‍634.4184-->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12  col-sm-4 col-md-4  " id="footer-contact">
+                        <a href="#contact-form" class="btn btn-default btn-clear btn-left mg-t-sm" data-toggle="modal" data-target=""><i class="icon-right-4 icon-fw"></i> Contact Us</a>
+                    </div>
+                    <div class="col-xs-12  col-sm-4 col-md-4 " style="text-align:center;">
+                        <div id="social-icons">
+                            <a target="_blank" href="" title="Facebook" class="social-fb"><i class="icon-facebook-square  "></i></a>
+                            <a target="_blank" href="" title="Twitter" class="social-tw"><i class="icon-twitter"></i></a>
+                            <a target="_blank" href="" title="Instagram" class="social-in"><i class="icon-instagram "></i></a>
+                            <a target="_blank" href='' title="Youtube" class='social-yt'><i class="icon-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- FOOTER -->
+        <div id="footer">
+            <div class="container ">
+                <div class="row mg-t-md mg-b-md">
+                    <div class="col-sm-3 col-md-3  ">
+
+                        <h4>LOCATION</h4>
+                        <ul>
+
+                            <li><a href="/vincennes" style="color: white;">Vincennes</a></li>
+                            <li><a href="/bicknell" style="color: white;">Bicknell</a></li>
+                            <li><a href="/french-creole" style="color: white;">French (Creole)</a></li>
+
+                        </ul>
+                        <hr class="thin-hr visible-xs">
+                    </div>
+
+                    <div class="col-sm-3 col-md-3 ">
+
+
+                        <h4>GIVE</h4>
+                        <ul>
+                            <li><a href="/connect/giving/" style="color: white;">Why We Give</a></li>
+                            <li><a href="/giving/" style="color: white;">Give Now</a></li>
+                            <li><a href="/connect/giving/#mobile" style="color: white;">Mobile Giving</a></li>
+                            <li><a href="/media/videos/annual-family-update-2017/" style="color: white;">Annual Report</a></li>
+                        </ul>
+                        <hr class="thin-hr visible-xs">
+                    </div>
+
+                    <div class="col-sm-3 col-md-3 ">
+                        <h4>WATCH</h4>
+                        <ul>
+
+                            <li><a href="/live" style="color: white;">Watch Live</a></li>
+                            <li><a href="/recent/">Recent Message</a></li>
+                            <li><a href="/sermons/" style="color: white;">Sermon Archive</a></li>
+                            <li><a href="/stories/">Stories</a></li>
+                            <li><a href='/media/music'>Music</a></li>
+
+                        </ul>
+                        <hr class="thin-hr visible-xs">
+                    </div>
+
+                    <div class=" col-sm-3 col-md-3 ">
+                        <h4>RESOURCES</h4>
+                        <ul>
+                            <li><a href="" style="color: white;">Discipleship</a></li>
+                            <li><a href="" style="color: white;" target="_blank">Spiritual Gift Test</a></li>
+                            <li><a href="" style="color: white;">Mobile Apps and TV</a></li>
+                            <li><a href="" style="color: white;" target="_blank">Bible Reading Plan</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row mg-t-md mg-b-md">
+                    <div class="col-md-12">
+                        <hr>
+                        <p>Copyright &copy; {current_time format="%Y"} Mountain Valley Church of God
+                            <span class="middot">·</span> <a href="/privacy-policy/" style="color: white;">Privacy Policy</a>
+                            <span class="middot">·</span> <a href="/credits/" style="color: white;">Credits</a>
+                            <span class="middot">·</span> <a href="/tags/" style="color: white;">Tags</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- window resize helper -->
+        <span id="mq-detector">
+   <span class="visible-xs"></span>
+        <span class="visible-sm"></span>
+        <span class="visible-md"></span>
+        <span class="visible-lg"></span>
+        </span>
+
+
+
+    </div>
+    <!-- / wrapper -->
+
+    <!-- form modals begin -->
+
+    <div id="prayer-request-popup" class="white-popup mfp-hide">
+
+        <h2>Prayer Request</h2>
+
+        <p>Please know that your requests and praises are emailed out daily to a group of diligent Chapel prayer partners.</p>
+
+        <p><small>If you would like to be contacted personally, please include your
+phone number or email address in the space provided. To assure confidentiality, your
+contact information will only be made available to The Chapel ministry team and will
+not be included in the outgoing email as part of your prayer request.</small></p>
+
+        <form id="prayer-request-form">
+            <div class="form-group">
+                <label>Your First Name</label>
+                <input id="prayer_name" name="prayer_name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Your Email</label>
+                <input id="prayer_email" name="prayer_email" type="email" class="form-control email">
+            </div>
+            <div class="form-group">
+                <label>Your Phone Number</label>
+                <input id="prayer_phone" name="prayer_phone" type="text" class="form-control phone">
+            </div>
+            <div class="form-group">
+                <label>Your Prayer Request (required)</label>
+                <textarea id="p_request" name="p_request" rows="7" class="form-control"></textarea>
+            </div>
+
+            <input name="website" type="hidden" id="send_prayer_website" value="">
+
+
+            <a href="javascript:void(0)" id="send_prayer_email" class="btn btn-default btn-left mg-t-sm"><i class="icon-send-1"></i> Send Prayer Request</a>
+            <span id="prayer_email_status"></span>
+        </form>
+
+    </div>
+
+    <div id="tech-support-popup" class="white-popup mfp-hide">
+
+        <h2>Technical Support Request</h2>
+
+        <p>If you're having trouble viewing the live stream, <a href="http://youtube.com/thursdaychurchvin/live" target="_blank">visit our Livestream page</a>. For additional support, contact us below.</p>
+
+        <form id="tech-support-form">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input id="tech_name" name="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Your Email Address</label>
+                <input id="tech_email" name="email" type="text" class="form-control email">
+            </div>
+            <div class="form-group">
+                <label>Please tell us the issues you are experiencing.</label>
+                <textarea id="tech_issues" name="issues" rows="7" class="form-control"></textarea>
+            </div>
+
+
+            <a href="javascript:void(0)" id="send_tech_support_email" class="btn btn-default btn-left mg-t-sm"><i class="icon-send-1"></i> Send Request</a>
+            <span id="tech_email_status"></span>
+        </form>
+
+    </div>
+
+    <div id="email-popup" class="white-popup mfp-hide">
+
+        <h2>Email Notes</h2>
+        <div class="form-group">
+            <label>Your Email Address</label>
+            <input id="send_email" name="send_email" type="email" class="form-control email">
+        </div>
+
+        <a href="javascript:void(0)" id="send_note_email" class="btn btn-default btn-left mg-t-sm"><i class="icon-send-1"></i> Send Email</a>
+        <span id="email_status"></span>
+
+    </div>
+
+    <div id="share-email-popup" class="white-popup mfp-hide">
+
+        <h2>Share This With A Friend</h2>
+        <div class="form-group">
+            <label>Your Email Address</label>
+            <input id="send_email_friend" name="send_email_friend" type="text" class="form-control email">
+        </div>
+        <div class="form-group">
+            <label>Your Friend's Email Address</label>
+            <input id="send_email_friend_friendname" name="send_email_friend_friendname" type="text" class="form-control email">
+        </div>
+        <div class="form-group">
+            <p class=" mg-b-xs"><strong>Subject:</strong> The Chapel Live</p>
+            <label>Your Message</label>
+            <textarea class="form-control" placeholder="Come join me in watching The Chapel live!" id="send_email_friend_message" name="send_email_friend_message"></textarea>
+
+            <p class="mg-t-sm"><strong>Sharing URL:</strong> http://thursdaychurch.org/live/</p>
+        </div>
+
+        <input name="website" type="hidden" id="send_website" value="">
+
+        <a href="javascript:void(0)" id="send_note_email_friend" class="btn btn-default btn-left mg-t-sm"><i class="icon-send-1"></i> Send Email</a>
+        <span id="email_friend_status"></span>
+
+    </div>
+
+    </div>
+    <!-- Javascript ================================================== -->
+    <script src="/assets/js/plugins/modernizr/modernizr.min.js"></script>
+    <script src="/assets/js/plugins/jquery/jquery.min.js"></script>
+    <script src="/assets/js/chop.js"></script>
+
+    <script src='/assets/js/plugins/fastbutton/google.fastbutton.js'></script>
+    <script src='/assets/js/plugins/fastbutton/jquery.google.fastbutton.js'></script>
+    <script src='/assets/js/bootstrap.min.js'></script>
+    <script src='/assets/js/plugins/emailObfuscation/emo.min.js'></script>
+    <script src='/assets/js/plugins/fitvids/jquery.fitvids.min.js'></script>
+    <script src='/assets/js/plugins/validate/jquery.validate.js'></script>
+    <script src='/assets/js/main.js'></script>
+    <script src='/assets/js/popup.js'></script>
+    <script src='/assets/js/share.js'></script>
+    <script>
+        { % include livejs.html %
+        }
+    </script>
+    <script src='/assets/css/ckeditor/ckeditor.js'></script>
+    <script src='/assets/css/ckeditor/samples/js/sample.js'></script>
+    {% if site.google_analytics %}
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', '{{ site.google_analytics }}', 'auto');
+        ga('send', 'pageview');
+    </script>
+    {% endif %}
+    <script>
+        initSample();
+    </script>
+</body>
+
+</html>

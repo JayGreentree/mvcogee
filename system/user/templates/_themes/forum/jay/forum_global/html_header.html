@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{lang}" lang="{lang}">
+<head>
+    <title>{forum_name} | {page_title}</title>
+    {include:meta_tags}
+{include:javascript}
+{include:head_extra}
+
+<style type='text/css'>
+{include:forum_css}
+</style>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- meta data -->
+    <meta name="author" content="">
+    <meta name="description" content="{if layout:desc}{layout:desc}{if:else}{/if}">
+    <!-- open graph common -->
+    <meta property="og:site_name" content="{site_name}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{theme_user_folder_url}site/default/asset/img/og/default.jpg">
+
+    <link href="/robots.txt" title="robots" type="text/plain" rel="help">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&amp;display=swap">
+    <link rel="stylesheet" href="/vendor/modal-video/css/modal-video.min.css">
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/vendor/owl.carousel2/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/vendor/owl.carousel2/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/style.blue.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="/css/custom.css">
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body {include:body_extra}>
+
+    <!-- navbar-->
+    <header class="header">
+        <div class="top-bar bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 bg-primary py-2 text-center text-lg-left">
+                        <p class="mb-0 text-small"><i class="fas fa-clock mr-2"></i>
+                            <!--Opening hours: Mon - Sat 9:00 - 18:00-->
+                            {if "{current_time format='%N'}" < 6} {if "{current_time format='%H'}">= 09 AND "{current_time format='%H'}" < 17} We're open for business! 
+                            {if:else} 
+                            We're closed right now 
+                            {/if} 
+                            {if:else} 
+                            Office closed today. 
+                            {/if} 
+                        </p>
+                     </div> 
+                            <div class="col-lg-8 text-right py-2 text-center text-lg-right">
+
+                                <ul class="list-inline mb-0">
+                                       <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="#"><i class="fas fa-mobile mr-2"></i>+1 866 456 1078 </a></li>
+                                        <li class="list-inline-item">|</li>
+                                        <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="#"><i class="fas fa-envelope mr-2"></i>support@jaygreentree.com</a></li>
+                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <h3>Greentree Consulting</h3>
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-2 {if segment_1 == ''} active{/if}">
+                            <a class="nav-link text-uppercase" href="/">Home </a>
+                        </li>
+                        <li class="nav-item mx-2{if segment_1 == 'about'} active{/if}">
+                            <a class="nav-link text-uppercase" href="/about">About</a>
+                        </li>
+                        <li class="nav-item mx-2{if segment_1 == 'contact'} active{/if}">
+                            <a class="nav-link text-uppercase" href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item ml-2 dropdown">
+                            <a class="nav-link text-uppercase dropdown-toggle pr-0" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                            <div class="dropdown-menu mt-lg-4" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item font-weight-bold text-small" href="/domains">Domains</a>
+                                <a class="dropdown-item font-weight-bold text-small" href="/hosting">Hosting</a>
+                                <a class="dropdown-item font-weight-bold text-small" href=""> </a>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-2 dropdown">
+                            <a class="nav-link text-uppercase dropdown-toggle pr-0" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                            <div class="dropdown-menu mt-lg-4" aria-labelledby="navbarDropdownMenuLink">
+                                {if logged_out}
+                            
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:login}">{lang:login}</a>
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:register}">{lang:register}</a>
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:memberlist}">{lang:memberlist}</a>
+                        {/if}
+                        
+                        {if logged_in}
+                            
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:your_profile}">{lang:your_profile}</a>
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:your_control_panel}">{lang:your_control_panel}</a>
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:memberlist}">{lang:memberlist}</a>
+                            <a class="dropdown-item font-weight-bold text-small" href="{path:logout}">{lang:logout}</a>
+                        {/if}
+                            </div>
+                        </li>
+                        <li class="nav-item ml-lg-3 pl-lg-3"><a class="btn btn-outline-primary btn-sm" href="">Request a quote</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+        
+    </header>

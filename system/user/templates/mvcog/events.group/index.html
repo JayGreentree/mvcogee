@@ -1,0 +1,27 @@
+{exp:channel:entries channel='event' limit='1' require_entry='yes'}
+	{if no_results}
+		{redirect='404'}
+	{/if}
+
+	<h1>{title}</h1>
+
+	<p>{event_address}</p>
+
+	{event_description}
+
+	<h2>Contact Info</h2>
+	<ul>
+		{event_contact}
+			<li>{event_contact:name}, {event_contact:position}: {event_contact:phone_number}</li>
+		{/event_contact}
+	</ul>
+
+	{if event_related_events:total_results > 0}
+		<h2>See Also</h2>
+		<ul>
+			{event_related_events}
+				<li><a href="{event_related_events:url_title_path='event/index">{event_related_events:title}</a></li>
+			{/event_related_events}
+		</ul>
+	{/if}
+{/exp:channel:entries}
