@@ -2,9 +2,9 @@
 	<channel>
 		<lastBuildDate>{current_time format="%D, %j %Y %h:%i:%s"}</lastBuildDate>
 		<title>
-			JourneyChurch.tv Podcast
+			mvcog.org Podcast
 		</title>
-		<itunes:author>JourneyChurch.tv</itunes:author>
+		<itunes:author>mvcog.org</itunes:author>
 		<link></link>
 		<description>
 			JourneyChurch is a house committed to transforming our cities ... one life at a time.
@@ -13,7 +13,7 @@
 		<itunes:summary>
 			JourneyChurch is a house committed to transforming our cities ... one life at a time.
 		</itunes:summary>
-		<itunes:email>connect@journeychurch.tv</itunes:email>
+		<itunes:email>connect@mvcog.org</itunes:email>
 		<language>en</language>
 		<copyright/>
 		<image>

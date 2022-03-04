@@ -2,7 +2,7 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 	<atom:link href="/media/audio/?podcast" rel="self" type="application/rss+xml" />
-	<title>JourneyChurch.tv Podcast</title>
+	<title>mvcog.org Podcast</title>
 	<itunes:author></itunes:author>
 	<description>Transforming a city one life at a time.</description>
 	<link></link>
@@ -16,7 +16,7 @@
 
 	<lastBuildDate>Sun, 01 Sep 2013 10:00:00 +0000</lastBuildDate>
 	<pubDate>Sun, 01 Sep 2013 10:00:00 +0000</pubDate>
-	<generator>JourneyChurch.tv</generator>
+	<generator>mvcog.org</generator>
 	<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 	<category>Religion &amp; Spirituality</category>
 	<itunes:category text="Religion &amp; Spirituality"></itunes:category>

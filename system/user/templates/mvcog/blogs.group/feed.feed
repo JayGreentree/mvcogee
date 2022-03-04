@@ -11,11 +11,11 @@
 
     <channel>
 
-    <title><![CDATA[JourneyChurch.tv Blog]]></title>
+    <title><![CDATA[mvcog.org Blog]]></title>
     <link>{channel_url}</link>
     <description>{channel_description}</description>
     <dc:language>{channel_language}</dc:language>
-    <dc:creator>JourneyChurch.tv</dc:creator>
+    <dc:creator>mvcog.org</dc:creator>
     <dc:rights>Copyright {gmt_date format="%Y"}</dc:rights>
     <dc:date>{gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
     <admin:generatorAgent rdf:resource="http://expressionengine.com/" />

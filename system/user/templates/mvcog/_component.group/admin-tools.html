@@ -18,7 +18,7 @@ function UpdateServiceLiveCheck1() {
 		success: function(data) {
 			if (data.indexOf("true") != -1) {
 				$("#service_live").html("<button style='background-color:#7f3e19;'><a onclick='confirm_turn_service_off()'>Turn it OFF</a></button>");
-				$("#service_live-noadmin").html("<p style='color:#7f3e19;text-align:right;padding-top:5px'><a href='http://live.journeychurch.tv' target='_blank' style='color:#7f3e19'>THERE'S A LIVE EXPERIENCE RIGHT NOW</a></p>")
+				$("#service_live-noadmin").html("<p style='color:#7f3e19;text-align:right;padding-top:5px'><a href='http://mvcogdev.online.church' target='_blank' style='color:#7f3e19'>THERE'S A LIVE EXPERIENCE RIGHT NOW</a></p>")
 			}
 			else {
 				$("#service_live").html("<button class='pull-right'><a onclick='confirm_turn_service_on()'>Turn it ON</a></button>");
