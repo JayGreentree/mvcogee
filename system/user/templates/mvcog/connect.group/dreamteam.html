@@ -1,0 +1,92 @@
+{embed="_includes/header" title="Dream Team" bar="yes"}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<style type="text/css">
+	:target {
+	    -webkit-animation: target-fade 3s 1;
+	    -moz-animation: target-fade 3s 1;
+	}
+
+	@-webkit-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+	@-moz-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+</style>
+<div class="connections_container container">
+	<div class="grid_4">
+		<h2 class="connections-logo"><strong>Dream</strong><br>
+			Team
+		</h2>
+	</div>
+	<div class="grid_8">
+			<h3>We are looking for energetic, joyful and excited people who want to make it their mission to create a comfortable environment where people feel needed and known!</h3>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_12 fancy-page">
+		{exp:channel:entries channel="Connect" url_title="{segment_2}"}
+			{connect-body}
+		{/exp:channel:entries}
+		<br>
+		<a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank"><button class="full" style="padding: 20px 5px">Join the Team!</button></a>
+		<br><br><br>
+		<h2>Frequently Asked</h2>
+		<div id="accordion">
+			{exp:channel:entries channel="FAQ" category="59" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<div class="connections-imgs">
+			<img src="/_img/connections-1.png">
+			<img src="/_img/connections-3.jpg">
+			<img src="/_img/connections-2.jpg">
+		</div>
+
+		<a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank"><button class="full" style="padding: 20px 5px">Join the Team!</button></a>
+		<br><br><br>
+		<h2>Guest Experiences</h2>
+		<div id="accordion2">
+			{exp:channel:entries channel="FAQ" category="86" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<br><br>
+		<h2>Campus Support</h2>
+		<div id="accordion3">
+			{exp:channel:entries channel="FAQ" category="87" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<script>
+$(function() {
+	 $("#accordion").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+	 $("#accordion2").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+	 $("#accordion3").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+});
+</script>
+{embed="_includes/footer"}

@@ -1,0 +1,74 @@
+{embed="_includes/header" title="I'm New" bar="yes"}
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<div class="title-bar about-alt">
+	<div class="container">
+		<div class="grid_12">
+			<h2>New to JourneyChurch?</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_12 banner">
+		<span data-picture data-alt="New to Journey?">
+			<span data-src="/_img/newtojourney-small.png"></span>
+			<span data-src="/_img/newtojourney.png" data-media="(min-width: 465px)"></span>
+
+			{!-- Fallback content for non-JS browsers --}
+			<noscript><img src="/_img/newtojourney-small.png" alt="New to Journey?"></noscript>
+		</span>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="grid_8">
+		{exp:channel:entries channel="Pages" url_title="weekends"}
+			<h2 class="page-title">{title}</h2>
+			<div class="fancy-page">
+				{page-body}
+			</div>
+		{/exp:channel:entries}
+		
+		{!--}
+		<h3 class="sub-title gray extra-margin">Commonly Asked Questions</h3>
+		
+		<div id="accordion">
+			{exp:channel:entries channel="FAQ"}
+				<h3>{title} <span class="fa fa-plus"></span></h3>
+				<div>
+					{faq-body}
+				</div>
+			{/exp:channel:entries}
+		</div>
+		{--}
+	</div>
+	<div class="grid_4">
+		{embed="/_component/sidebar-about"}
+		<br>
+		<ul class="side-nav side-locations">
+			<h3 class="sub-title blue">Location</h3>
+			{exp:channel:entries channel="location" sort="asc" orderby="listing-priority" backspace="39"}
+				<h3>{title}</h3>
+				{!--}<h4>Campus Pastor: {location-pastor:title}</h4>{--}
+				<p><i class="fa fa-clock-o"></i> {location-times}</p>
+				<p><i class="fa fa-map-marker"></i>  {location-address}<br><a href="http://maps.google.com/?q={location-address}" target="_blank">(get directions)</a></p>
+				<p><i class="fa fa-phone"></i>  {location-phone}</p>
+				<p><i class="fa fa-envelope-o"></i> {location-email}</p>
+				
+				<div class="locations-separator"></div>
+			{/exp:channel:entries}
+		<ul>
+	</div>
+	<div class="clear"></div>
+	
+</div>
+ <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content"
+    });
+  });
+  </script>
+
+{embed="_includes/footer"}

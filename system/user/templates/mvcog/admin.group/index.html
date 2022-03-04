@@ -1,0 +1,41 @@
+{embed="_includes/header" title="Admin Panel"}
+
+{embed="_component/admin-tools"}
+
+<div class="container">
+	<div style="margin-bottom:15px;border-bottom:1px solid #eee">
+		<h2 style="float:left;">Admin Panel</h2>
+		{if member_group == "1"}
+			<div class="pull-right">
+				<div id="service_live"></div>
+			</div>
+		{if:else}
+			<div id="service_live-noadmin" class="pull-right"></div>
+		{/if}
+		<div class="clear"></div>
+	</div>
+
+	<div class="grid_10">
+		<h3>Most Active Pages</h1>
+		<div class="clear"></div>
+		
+		<p id="current_pages">Loading Most Active Pages…</p>
+		<div class="clear"></div>
+	</div>
+	<div class="grid_2" style="text-align:center">
+		<p>ChOP: {live_videoid}</p>
+		<div>
+			<h2 id="total_visitors" style="font-size:36px">0</h2>
+			<p style="font-size:12px"><strong>Visitors</strong></p>
+		</div>
+		<br>
+		<div>
+			<h2 id="connections" style="font-size:36px">0</h2>
+			<p id="streams" style="font-size:12px"><strong>Streaming</strong></p>
+		</div>
+		
+	</div>
+	<div class="clear"></div>
+</div>
+
+{embed="_includes/footer"}

@@ -1,0 +1,20 @@
+{exp:channel:entries channel="series" url_title="{embed:series}" dynamic="no"}
+	{if {parents:total_results} >= "2" OR segment_1 == "series" OR segment_1 == "study"}
+		<div class="container series-sub clearfix">	
+			<div class="grid_12">
+				<h2>Experiences in this study:</h2>
+			</div>
+			{parents channel="media" sort="desc" orderby="media-date"}
+				<div class="grid_3 series-ind">
+					<a href="/media/{parents:url_title}" {if series-color}style="color:{series-color}"{/if}>
+						<img src="{if parents:media-img}{parents:media-img:med}{if:elseif series-img}{series-img:med}{if:else}/_img/media/_med/BROKEN.png{/if}">
+						<strong>{parents:title}</strong><br>
+						{parents:media-date format="%F %j, %Y"}
+					</a>
+					<div class="clear"></div>
+				</div>
+				{parents:switch="|||<div class='clear'></div>"}
+			{/parents}
+		</div>
+	{/if}
+{/exp:channel:entries}

@@ -1,0 +1,100 @@
+<div class="clear"></div>
+{embed="_includes/footer-content"} {!-- Mobile Nav --}
+<script src="/_js/sidr.js"></script>
+
+{!-- Retina Friendly --}
+<script type="text/javascript" src="/_js/retina.js"></script>
+
+<script src="/_js/scripts.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+<script src="/themes/third_party/acs_bridge/handlebars.runtime.js"></script>
+<script src="/themes/third_party/acs_bridge/event.js"></script>
+
+<script type="text/javascript">
+    $.ajax({
+                type: "GET",
+                url: "{exp:acs_bridge:json fetch="
+                event "}",
+                data: {
+                    id: "{segment_3}",
+                    reg: "true",
+                    image: "true"
+                },
+                error: function(data) {
+                    console.log(data)
+                },
+                success: function(data) {
+                    // console.log(data)
+
+                    //  format the ACS start date
+                    Handlebars.registerHelper('dateFormat', function(context, block) {
+                        startDateMonth = moment(context).format('MMMM Do');
+                        startDateHour = moment(context).format('h:mm A');
+                        if (window.moment) {
+                            // Dont show time if it's an all day event
+                            if (moment(context).format('h A') == "12 AM") {
+                                return moment(context).format('MMMM Do');
+                            } else {
+                                return moment(context).format('MMMM Do [at] h:mm A');
+                            }
+                        } else {
+                            return context;
+                        }
+                    });
+
+                    //  format the ACS Registration end time
+                    Handlebars.registerHelper('dateFormatReg', function(context, block) {
+                        startDateMonth = moment(context).format('MMMM Do');
+                        startDateHour = moment(context).format('h:mm A');
+                        if (window.moment) {
+                            return moment(context).format('MMMM Do');
+                        } else {
+                            return context;
+                        }
+                    });
+
+                    //  format the ACS stop date
+                    Handlebars.registerHelper('endDateFormat', function(stopcontext, block) {
+                        if (window.moment) {
+                            if (moment(stopcontext).format('MMMM Do') != startDateMonth) {
+                                if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+                                    return moment(stopcontext).format(' [-] MMMM Do [at] h:mm A');
+                                } else {
+                                    return moment(stopcontext).format(' [-] MMMM Do');
+                                }
+                            } else if (moment(stopcontext).format('h:mm A') != startDateHour) {
+                                if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+                                    return moment(stopcontext).format(' [-] h:mm A');
+                                }
+                            } else {
+                                if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+                                    return moment(stopcontext).format(' [-] MMMM Do [at] h:mm A');
+                                } else {
+                                    return moment(stopcontext).format(' [-] MMMM Do');
+                                }
+                            }
+                        } else {
+                            return stopcontext;
+                        }
+                    });
+
+                    var source = $("#event_tmpl").html();
+                    var template = Handlebars.templates['event'];
+                    var html = template(data);
+                    $("#event").html(template(data));
+
+                    // Event Registration from EE
+                    {
+                        exp: channel: entries channel = "events"
+                        url_title = "{segment_3}"
+                    }
+                    var eventreg = "{event-reg}"; {
+                        /exp:channel:entries}
+                        $(".register-button").html("<a href='" + eventreg + "' target='_blank'><button class='pull-right'><i class='fa fa-ticket'></i> Register Now</button></a>");
+                    }
+                });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{exp:channel:form channel="Planning" return="planning/index" entry_id="{embed:editid}" datepicker="no"}
+	<div class="modal fade" id="edit{entry_id}" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Add Event</h4>{entry_date}
+				</div>
+				<div class="modal-body">
+					<input name="title" type="text" class="form-control" value="{title}" placeholder="Title"><br>
+					<input name="entry_date" type="text" class="form-control" value="{entry_date format='%m/%d/%y'}" placeholder="Start Date"><br>
+					<input name="planning-person" type="text" class="form-control" value="{planning-person}" placeholder="Contact Person"><br>
+					<input name="planning-location" type="text" class="form-control" value="{planning-location}" placeholder="Location"><br>
+					<input name="planning-ministry" type="text" class="form-control" value="{planning-ministry}" placeholder="Ministry Responsible"><br>
+					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5">{exp:remove_html}{planning-desc}{/exp:remove_html}</textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+					<input type="submit" class="btn btn-primary" value="Submit">
+				</div>
+			</div>
+		</div>
+	</div>
+{/exp:channel:form}

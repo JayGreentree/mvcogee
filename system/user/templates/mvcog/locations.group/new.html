@@ -1,0 +1,118 @@
+{embed="_includes/header" title="Locations"}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+	var map;
+		
+	function LoadMap() {
+		var mapOptions;
+			mapOptions = {
+			zoom: {if segment_2=="category"}9{if:else}2{/if},
+			scrollwheel: false,
+			center: new google.maps.LatLng({if segment_2=="category"}28.591757, -81.359253{if:else}20, 18{/if}),			
+			mapTypeId: google.maps.MapTypeId.HYBRID,
+			streetViewControl: false,
+			panControl: false,
+			overviewMapControl: false,
+			mapTypeControl: false
+			};
+			
+		var iconF = '{v2-image-asset-url}/icons/map-local.png';
+		var iconG = '{v2-image-asset-url}/icons/map-partner.png';
+		var iconH = '{v2-image-asset-url}/icons/map-house.png';
+		var iconJ = '{v2-image-asset-url}/icons/map-jail.png';
+		
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);			
+
+		{exp:channel:entries channel="location"  category="27"}
+			var marker{entry_id} = new google.maps.Marker({position: new google.maps.LatLng({location-lat}, {location-long}), icon: iconF});
+			var infowindow{entry_id} = new google.maps.InfoWindow({ content: '<div class="infoContainer">{if entry_id != "21694"}<h2><a href="{exp:low_replace find='index.php/'}{title_permalink='locations/category'}{/exp:low_replace}">{title}</a></h2>{if:else}<h2><a href="{exp:low_replace find="index.php/"}http://www.northlandchurch.net/locations/category/oviedo{/exp:low_replace}">{title}</a></h2>{/if}<img src="/_img/uploads/{location-image}" style="max-width: 200px; float: left; margin-right: 20px"/><div style="float: right; width: 350px">{exp:low_replace find="\n" multiple="yes" regex="yes"}<p>{location-descrip}</p><p>{location-address}{/exp:low_replace}</p></div></div>' });
+			marker{entry_id}.setMap(map);					
+			{if segment_2 == ""}google.maps.event.addListener(marker{entry_id}, 'click', function() { infowindow{entry_id}.open(map, marker{entry_id}) } );{/if}
+		{/exp:channel:entries}		
+		
+		{exp:channel:entries channel="location"  category="318"}
+			var marker{entry_id} = new google.maps.Marker({position: new google.maps.LatLng({location-lat}, {location-long}), icon: iconH});
+			var infowindow{entry_id} = new google.maps.InfoWindow({ content: '<div class="infoContainer"><h2>{title}</h2><div>{exp:low_replace find="\n" multiple="yes" regex="yes"}{if location-descrip}<p>{location-descrip}</p>{/if}<b>Service Time(s): </b>{location-servicetimes}<br><b>Address: </b>{location-address}<br><b>Contact: </b>{location-contact}{/exp:low_replace}</div></div>' });
+			marker{entry_id}.setMap(map);		
+			{if segment_2 == ""}google.maps.event.addListener(marker{entry_id}, 'click', function() { infowindow{entry_id}.open(map, marker{entry_id}) } );{/if}		
+		{/exp:channel:entries}
+		
+		{exp:channel:entries channel="location"  category="317"}
+			var marker{entry_id} = new google.maps.Marker({position: new google.maps.LatLng({location-lat}, {location-long}), icon: iconJ});
+			var infowindow{entry_id} = new google.maps.InfoWindow({ content: '<div class="infoContainer"><h2>{title}</h2><img src="/_img/uploads/{location-image}" style="max-width: 200px; float: left; margin-right: 20px"/><p style="float: right; width: 350px">{exp:low_replace find="\n" multiple="yes" regex="yes"}{location-descrip}</p><p>{location-address}{/exp:low_replace}</p></div>' });
+			marker{entry_id}.setMap(map);		
+			{if segment_2 == ""}google.maps.event.addListener(marker{entry_id}, 'click', function() { infowindow{entry_id}.open(map, marker{entry_id}) } );{/if}	
+		{/exp:channel:entries}
+		
+		
+		{exp:channel:entries channel="location"  category="28"}
+			var marker{entry_id} = new google.maps.Marker({position: new google.maps.LatLng({location-lat}, {location-long}), icon: iconG});
+			var infowindow{entry_id} = new google.maps.InfoWindow({ content: '<div class="infoContainer"><h2>{title}</h2><img src="/_img/uploads/{location-image}" style="max-width: 200px; max-height: 200px; float: left; margin-right: 20px"/><p style="float: right; width: 350px">{exp:low_replace find="\n" multiple="yes" regex="yes"}{location-descrip}</p><p>{location-address}{/exp:low_replace}</p></div>' });
+			marker{entry_id}.setMap(map);		
+			{if segment_2 == ""}google.maps.event.addListener(marker{entry_id}, 'click', function() { infowindow{entry_id}.open(map, marker{entry_id}) } );{/if}	
+		{/exp:channel:entries}
+		}
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	LoadMap();
+	jQuery(".faq-collapse").hide();
+	//toggle the componenet with class msg_body
+	jQuery(".faq-activate").click(function() {
+		jQuery(this).next(".faq-collapse").slideToggle(500);
+	});
+});
+</script>
+
+
+	{exp:channel:entries category="27" channel="location" orderby="title" sort="asc"}
+	<div class="location">
+		{if entry_id != "21694"}
+			<h3><a href="{exp:low_replace find='index.php/'}{title_permalink='locations/category'}{/exp:low_replace}">{title}</a></h3>
+		{if:else}
+			<h3><a href="{exp:low_replace find='index.php/'}http://www.northlandchurch.net/locations/category/oviedo{/exp:low_replace}">{title}</a></h3>
+		{/if}
+		<img src="{image-asset-url}/uploads/{location-image}" class="left" />
+		<div class="right">
+			{if location-servicetimes}
+		   		<strong>Service Times</strong><br />
+		   		{location-servicetimes}
+			{/if}
+			{location-servicesoffered}
+			<p>
+				<a href="{location-maplink}" title="Google Map of {title}">Google Map</a><br />
+			</p>
+			{location-contact}
+		</div>
+		<div class="clear"></div>
+	</div>
+	{/exp:channel:entries}
+	
+	<h2 class="marg-b-20 large">House Churches</h2>
+			
+	{exp:channel:entries category="318" channel="location"}
+	<div class="location" name="{entry_id}">
+		<h3>{title}</h3>
+		<div>
+			{if location-descrip}
+				{location-descrip}<br /><br />
+			{/if}				
+			{if location-servicetimes}
+		   		<strong>Service Times: </strong>
+		   		{location-servicetimes}<br />
+			{/if}
+			<strong>Where We Worship: </strong>
+			{location-address}<br />
+			
+			<strong>Contact Us - </strong>
+			{location-contact}
+		</div>
+		<div class="clear"></div>
+	</div>
+	{/exp:channel:entries}
+</div>
+
+{embed="_includes/footer"}

@@ -1,0 +1,12 @@
+{exp:acs_bridge:event_detail}
+<div style="padding: 20px">
+<h1>{eventname}</h1>
+<p>{startdate format="%F %d, %Y"} - {stopdate format="%F %d, %Y"}</p>
+{if locationname != ''}<b>Location:</b> {categoryname} - {locationname}<br />{/if}
+<p>{description}</p>
+
+{if allow_registration}
+<h4><a href="https://secure.accessacs.com/access/login_guest.aspx?sn=106649">Register Here</a></h4>
+{/if}
+</div>
+{/exp:acs_bridge:event_detail}

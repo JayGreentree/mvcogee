@@ -1,0 +1,202 @@
+{embed="_includes/header-opener" title="{if segment_2==""}{if:else}{exp:channel:entries channel='media' dynamic='on' limit='1'}{title}{/exp:channel:entries}{/if}" title2="Media"}
+<script type="text/javascript">
+    var switchTo5x = true;
+</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+    stLight.options({
+        publisher: "12217aef-f07e-464d-8757-03bfdb881858",
+        doNotHash: false,
+        doNotCopy: false,
+        hashAddressBar: false
+    });
+</script>
+
+{if segment_2 == ""}
+<meta name="Description" content="This house is an expression of the creative nature that lives within it. We look to create creators by empowering people to use art, media, music, and other means of creative expression to communicate to all facets of the culture around us."> {if:else} {exp:channel:entries channel="Media" dynamic="on" limit="1"}
+<meta name="title" content="{title}">
+<meta name="og:description" content="{exp:remove_html}{media-desc}{/exp:remove_html}">
+<meta property="og:url" content="/media/{url_title}">
+<meta property="og:type" content="movie" />
+<meta property="og:video:height" content="420" />
+<meta property="og:video:width" content="640" />
+<meta property="og:video" content="http://www.youtube.com/v/{media-youtube}"> {/exp:channel:entries} {/if} {embed="_includes/header-closer" bar="yes"} {if segment_2 == ""}
+<div class="title-bar media-title">
+    <div class="container">
+        <div class="grid_12">
+            <h2>All Media</h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="container media clearfix">
+    {exp:channel:entries channel="media" category="9" limit="1" dynamic="no"}
+    <div class="grid_5">
+        <h2>{title}</h2>
+        <p><strong>Speaker:</strong> {media-speaker}</p>
+        <p>{media-desc}</p>
+        <br>
+        <a href="/media/{url_title}"><button class="no-margin-l">View Media</button></a>
+    </div>
+    <div class="grid_7">
+        {if media-video}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+        </div>
+        {!-- YouTube --} {if:elseif media-youtube && media-video == ""}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        {/if}
+    </div>
+    {/exp:channel:entries}
+    <div class="clear"></div>
+    <hr>
+    <div class="grid_12">
+        <h2>Weekend</h2>
+    </div>
+    {exp:channel:entries channel="series" category="7" sort="desc" orderby="series-end" dynamic="no" limit="5"}
+    <div class="grid_4 series">
+        <a href="/study/{url_title}">
+					{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+				</a>
+    </div>
+    {/exp:channel:entries}
+    <div class="grid_4 series media-viewall">
+        <a href="/studies">
+            <h2>View All <i class="fa fa-chevron-right"></i></h2>
+            <h3>View more</h3>
+        </a>
+    </div>
+
+    <div class="clear"></div>
+
+    <hr>
+    <div class="grid_6">
+        <h2>Lifestream</h2>
+        {exp:channel:entries channel="series" category="37" sort="desc" orderby="series-end" dynamic="no" limit="5"}
+        <div class="grid_3 series alpha">
+            <a href="/study/{url_title}">
+						{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+					</a>
+        </div>
+        {/exp:channel:entries}
+        <div class="grid_3 series media-viewall media-viewall-small alpha">
+            <a href="/study/lifestream">
+                <h2>View All <i class="fa fa-chevron-right"></i></h2>
+            </a>
+        </div>
+    </div>
+    <div class="grid_6">
+        <h2>Stories</h2>
+        {exp:channel:entries channel="media" category="4" sort="desc" orderby="date" dynamic="no" limit="5"}
+        <div class="grid_3 series alpha">
+            <a href="/media/{url_title}">
+						{if media-img}
+							<img src="{media-img:med}" alt="{title}">
+						{if:else}
+							<img src="/_img/media/_med/BROKEN.png" alt="{title}">
+						{/if}
+					</a>
+        </div>
+        {/exp:channel:entries}
+        <div class="grid_3 series media-viewall media-viewall-small alpha">
+            <a href="/weekend-stories">
+                <h2>View All <i class="fa fa-chevron-right"></i></h2>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <hr>
+
+    <div class="grid_12">
+        <h2>Articles</h2><br>
+        <a href="http://www.oklahomahomes.com/articles/journey-church-takes-unique-approach-to-sunday-service-embracing-creativity">Oklahoma Homes <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>
+</div>
+{if:else} {exp:channel:entries channel="Media" dynamic="on" limit="1"}
+<?php
+			/* Get the series for this entry */
+			$theseries = "{media-series}{media-series:url_title}{/media-series}";
+		?>
+    <div class="title-bar media-title" {media-series}{if media-series:series-color}style="background-color:{media-series:series-color}" {/if}{/media-series}>
+        <div class="container mobile-media">
+            <div class="grid_12">
+                <h2>{title}</h2>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {/exp:channel:entries}
+    <div class="container">
+        <div class="media clearfix">
+            <div class="grid_8">
+                {exp:channel:entries channel="Media" dynamic="on" limit="1"} {!-- Stream Monkey --} {if media-video}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+                </div>
+                {!-- YouTube --} {if:elseif media-youtube && media-video == ""}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                {!-- Vimeo --} {if:elseif media-vimeo && media-youtube == "" && media-video == ""}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//player.vimeo.com/video/{media-vimeo}?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+                <div class="clear"></div>
+                {/if} {/exp:channel:entries}
+                <div class="clear"></div>
+            </div>
+
+            {exp:channel:entries channel="Media" dynamic="on" limit="1"}
+            <div class="grid_4 media-desc">
+                {if media-desc}
+                <p>{media-desc}</p><br>{/if} {if media-speaker}
+                <p><strong>Speaker:</strong> {media-speaker}</p>{/if} {if media-date}
+                <p><strong>Date:</strong> {media-date format="%F %j, %Y"}</p><br>{/if} {if media-podcast}<a id="podcast" href="{media-podcast}" download="{title}" target="_blank" style="float:left"><button style="margin-left:0;background-color:{media-series:series-color}"><i class="fa fa-headphones"></i> Download Audio</button></a>{/if}
+                {categories}{if category_id=="9"}<a href="https://itunes.apple.com/us/podcast/journeychurch.tv-podcast/id445862036?mt=2" target="_blank" style="float:left"><button style="margin-left:0;background-color:{media-series:series-color}"><i class="fa fa-rss"></i> Subscribe</button></a>{/if}{/categories}
+                <div class="media-desc-btm">
+                    <div class="clear"></div>
+                    <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+                    <span class='st_facebook_hcount' displayText='Facebook'></span>
+                    <span class='st_twitter_hcount' st_title='Just watched "{title}" from @JourneyChurchtv:' displayText='Tweet'></span>
+                </div>
+            </div>
+
+            <script>
+                var podcast = "{media-podcast}";
+
+                if (!(podcast.includes(".mp3"))) {
+                    podcast = podcast + ".mp3";
+
+                    document.getElementById("podcast").href = podcast;
+                }
+            </script>
+
+            <div class="clear"></div>
+            {/exp:channel:entries}
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    {exp:channel:entries channel="Media" limit="1" dynamic="on" category="not 4"} {!-- CKEDITOR - it's down here so it's only looped in when cat4 isn't present --}
+    <script src="/themes/ckeditor/ckeditor.js"></script>
+    <script src="/themes/ckeditor/adapters/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            CKEDITOR.replace('mediaNotes', {
+                uiColor: '#ffffff'
+            })
+        });
+    </script>
+
+    {!-- Notes --}
+    <div id="full-only" class="container clearfix">
+        <div class="grid_12 media-notes">
+            <textarea name="message" id="mediaNotes" class="ckeditor">{if media-notes}{media-notes}{/if}</textarea>
+        </div>
+    </div>
+
+    {!-- Other Experiences --} {embed="_component/media-series" series="
+    <?=$theseries?>"} {/exp:channel:entries} {/if} {embed="_includes/footer"}

@@ -1,0 +1,68 @@
+<style>
+    body {
+        margin: 0;
+        background: none transparent;
+    }
+    
+    div.archive {
+        background-color: #b6985a;
+        color: #fff;
+        padding: 5px;
+        font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    
+    div.archive a {
+        color: #FFF!important;
+        text-decoration: none!important;
+    }
+    
+    div.archive a:hover {
+        text-decoration: underline!important;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css" />
+<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'> {if service_live == "true"} {!-- NORECORD (live on encoder): 1482 | DVR: 1573 | LIVE (DVR on encoder): 1254 --}
+<iframe src='http://www.streammonkey.com/iframe/{live_videoid}' width='100%' height='100%' frameborder='0'></iframe> {if:else}
+<script type="text/javascript" src="/_js/jwplayer.js"></script>
+<script type="text/javascript">
+    jwplayer.key = "kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";
+</script>
+
+{exp:channel:entries channel="Media" category="36" limit="1" orderby="media-date" sort="desc"} {if media-video}
+<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='100%' height='100%' frameborder='0'></iframe>
+<div class="clear"></div>
+{if:elseif media-youtube}
+<div id="vid{entry_id}">
+    <iframe class="mobile-vid" type="text/html" width="100%" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
+</div>
+<script type="text/javascript">
+    jwplayer("vid{entry_id}").setup({
+        'autostart': 'false',
+        'width': '100%',
+        'menu': 'false',
+        'aspectratio': '16:9',
+        'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
+        'image': '{media-series}{media-series:series-img}{/media-series}',
+        'abouttext': 'JourneyChurch.tv Media',
+        'aboutlink': '/media',
+        'plugins': {
+            'gapro-2': {
+                accountid: "UA-23134458-1",
+                trackstarts: true,
+                trackpercentage: true,
+                tracktime: true
+            }
+        },
+        'modes': [{
+            'type': 'flash',
+            'src': '/_js/jwplayer.flash.swf'
+        }]
+    });
+</script>
+<div class="clear"></div>
+{/if} {/exp:channel:entries}
+<div class="clear"></div>
+{/if}

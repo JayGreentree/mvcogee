@@ -1,0 +1,11 @@
+{exp:acs_bridge:events show_days="30"}
+	<div class="calendar">
+		<h4>{eventname}</h4>
+		<p class="bold">{startdate format="%l, %M %d at %g:%i %A"}</p>
+		<p>{description}</p>
+		<a href="acs/details?eventid={eventid}&startdate={startdate}" class="pop">More Details</a>
+		
+		{if no_results}<p>There are no results for that time period.</p>{/if}
+		{if error}<p><b>Oops!</b> Something went wrong. Please try again later. If the problem continues please contact the webmaster.</p>{/if}
+	</div>
+{/exp:acs_bridge:events}

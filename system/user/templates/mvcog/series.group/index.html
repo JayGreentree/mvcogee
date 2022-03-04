@@ -1,0 +1,27 @@
+{if segment_2 == ""}
+	{embed="media/index"}
+{if:else}
+	{embed="_includes/header" title="{exp:channel:entries channel='series' dynamic='on' limit='1'}{title}{/exp:channel:entries}" bar="yes"}
+	{!-- Stream Monkey Player Helpers --}
+	<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+	
+		<div class="title-bar">
+			<div class="container">
+				<div class="grid_12">
+					<h2>Series</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div class="container media clearfix">
+			{exp:channel:entries channel="series" dynamic="on"}
+				<div class="grid_4 series">
+					{title}
+				</div>
+			{/exp:channel:entries}
+			<div class="clear"></div>
+		</div>
+		
+	{embed="_includes/footer"}
+{/if}

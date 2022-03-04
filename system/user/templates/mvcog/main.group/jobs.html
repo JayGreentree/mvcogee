@@ -1,0 +1,24 @@
+{embed="_includes/header" title="Jobs" bar="yes"}
+
+<div class="title-bar about-alt">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Jobs at JourneyChurch.tv</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+		{exp:channel:entries channel="Jobs"}
+			<div class="grid_12">
+				<h2 style="color:#006f7c">{title} ({job_hours})</h2><br>
+				{job_body}<br>
+				{job_footer}
+			</div>
+			<br class="clear">
+			{if no_results}<h2>There are currently no job listings.</h2>{/if}
+		{/exp:channel:entries}
+</div>
+
+{embed="_includes/footer"}

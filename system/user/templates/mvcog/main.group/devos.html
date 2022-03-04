@@ -1,0 +1,110 @@
+{if segment_2 == ""} {embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="Devotionals"}
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<div class="title-bar">
+    <div class="container">
+        <div class="grid_12">
+            <h2>Devotionals</h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="devos">
+    <div class="container clearfix" style="margin-top:50px">
+        <div class="grid_7">
+            {exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+            <h2 style="padding-top:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Devotional{/if} - {entry_date format="%F %j"}</a></h2>
+            <h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
+            {exp:word_limit total="120"} {devos-body} {/exp:word_limit}
+            <br><br>
+            <p>
+                <a href="/devos/{url_title}" class="continueon"><strong>Continue Reading &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+            </p>
+            {/exp:channel:entries}
+            <div class="clear"></div>
+        </div>
+        <div class="grid_4 push_1">
+            <ul class="side-nav devos-side-nav">
+                <h3 class="sub-title blue">Resources</h3>
+                <li><a href="/groups"><i class="fa fa-group"></i>  Join a Life Group</a></li>
+                <li><a href="/media"><i class="fa fa-youtube-play"></i> Watch media</a></li>
+            </ul>
+            <br><br> {if {current_time format="%Y%m%d"}
+            < 20170111} <h3 class="sub-title blue">Update</h3>
+                <p>Check back every Wednesday for new devotionals written by one of our pastors Glenn Quirk!<br><br>These devotionals are designed for you to grow and respond to the topics in our current churchwide study.<br><br>We are very excited to see
+                    you grow in your relationship with Jesus!</p>
+                {/if}
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+{if:else} {exp:channel:entries channel="Devos" dynamic="yes" url_title="{segment_2}" show_future_entries="yes"} {if no_results}{redirect="devos"}{/if} {embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="{title} - Devotionals"}
+<link rel="alternate" type="application/rss+xml" title="{title} - JourneyChurch.tv" href="/blogs/feed">
+<script type="text/javascript">
+    var switchTo5x = true;
+</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+    stLight.options({
+        publisher: "12217aef-f07e-464d-8757-03bfdb881858",
+        doNotHash: false,
+        doNotCopy: false,
+        hashAddressBar: false
+    });
+</script>
+
+<div id="devos" class="container clearfix">
+    <div class="grid_12">
+        <?php
+					$today = "{entry_date format='%F %j'}";
+					$backward = date($today,strtotime("-1 days"));
+				?>
+            {embed="_component/devos-nav" url="{segment_2}"}
+
+            <div class="blog-title">
+                <h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
+                <h2>{title}</h2>
+                {if devos-author}
+                <h4>By {devos-author}</h4>{/if} {if devos-mp3_s3}
+                <br>
+                <h4><a href="{devos-mp3_s3}" target="_blank"><i class="fa fa-volume-up"></i></a> <a href="{devos-mp3_s3}" target="_blank"><strong>LISTEN</strong></a></h4>
+                {if:elseif devos-mp3}
+                <br>
+                <h4><a href="{devos-mp3}" target="_blank"><i class="fa fa-volume-up"></i></a> <a href="{devos-mp3}" target="_blank"><strong>LISTEN</strong></a></h4>
+                {/if}
+            </div>
+    </div>
+    <div class="grid_7">
+        <div class="blog-entry">
+            {devos-body} {if devo-prayer}
+            <br>
+            <h2>Today's Prayer - {devos-prayer-title}</h2>
+            {devo-prayer} {/if}
+        </div>
+    </div>
+    <div class="grid_4 push_1">
+        <ul class="side-nav devos-side-nav">
+            <h3 class="sub-title blue">Resources</h3>
+            <li><a href="/groups"><i class="fa fa-group"></i>  Join a Life Group</a></li>
+            <li><a href="/media"><i class="fa fa-youtube-play"></i> Watch media</a></li>
+        </ul>
+        <br><br>
+        <h3 class="sub-title blue">Update</h3>
+        <p>Check back every Wednesday for new devotionals written by one of our pastors Glenn Quirk!<br><br>These devotionals are designed for you to grow and respond to the topics in our current churchwide study.<br><br>We are very excited to see you grow
+            in your relationship with Jesus!</p>
+    </div>
+    <div class="grid_12">
+        <div class="blog-details">
+            <div class="blog-comments pull-right">
+                <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                <span class='st_twitter_hcount' displayText='Tweet'></span>
+            </div>
+        </div>
+
+        <a href="/devos" id="full-only"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main Devos Page</strong></a>
+    </div>
+    <div id="mobile-only" class="mobile-nav">
+        <a href="/devos"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main Devos Page</strong></a>
+    </div>
+</div>
+{/exp:channel:entries} {/if} {embed="_includes/footer"}

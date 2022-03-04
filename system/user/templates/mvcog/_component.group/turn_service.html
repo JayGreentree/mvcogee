@@ -1,0 +1,18 @@
+{if group_id == "1" || group_id == "22" || last_segment == "n01w!llFindm3"}
+	{if segment_3=="on"}
+		<?php
+			$sql="UPDATE exp_snippets SET snippet_contents = 'true' WHERE snippet_name='service_live'";	
+			mysql_query($sql) or die();
+		?>		
+		Live service is now on.
+	{/if}
+	{if segment_3=="off"}
+		<?php
+			$sql="UPDATE exp_snippets SET snippet_contents = 'false' WHERE snippet_name='service_live'";	
+			mysql_query($sql) or die();
+		?>
+		Live service is now off.
+	{/if}
+{if:else}
+	Oops. You aren't logged in.
+{/if}

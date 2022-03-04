@@ -1,0 +1,137 @@
+<style type="text/css">
+    #churchonline_counter {
+        display: none;
+    }
+    
+    #churchonline_counter .live {
+        display: none;
+    }
+    
+    .mobile-liveservice {
+        display: none;
+    }
+</style>
+
+<div class="countdown">
+    <div class="container">
+        <div id="churchonline_counter">
+            <div class="live"><a href="http://mvcogdev.online.church" style="color:#FFF!important">Join our live worship experience</a></div>
+            <div class="notlive">
+                {!--}<span id="eventTitle" style="color:#b7b6b1!important"></span>{--}Our next online experience begins in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span>
+                <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        StartServiceLiveCheck();
+    });
+
+    function StartServiceLiveCheck() {
+        UpdateServiceLiveCheck();
+        setTimeout("StartServiceLiveCheck()", 5000);
+    }
+
+    function UpdateServiceLiveCheck() {
+        $.ajax({
+            url: "/_component/islive",
+            success: function(data) {
+                if (data.indexOf("true") != -1) {
+                    $(".notlive").hide();
+                    $(".live").fadeIn('fast');
+                    $('.countdown').delay(2000).animate({
+                        backgroundColor: "#7f3e19"
+                    }, 'slow');
+                    $(".mobile-liveservice").show();
+                }
+            }
+        });
+        goLive = function() {
+            $(".notlive").hide();
+            $(".live").fadeIn('fast');
+            $('.countdown').delay(2000).animate({
+                backgroundColor: "#7f3e19"
+            }, 'slow');
+            $(".mobile-liveservice").show();
+        };
+    }
+</script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(function() {
+        days = void 0;
+        hours = void 0;
+        minutes = void 0;
+        seconds = void 0;
+        intervalId = void 0;
+        return $.ajax({
+            url: "/_component/current",
+            dataType: "json",
+            success: function(data) {
+                var seconds_till;
+                $("#churchonline_counter").show();
+                if (data.response.item.isLive) {
+                    return goLive();
+                } else {
+                    seconds_till = ((new Date(data.response.item.eventStartTime)) - (new Date())) / 1000;
+                    days = Math.floor(seconds_till / 86400);
+                    hours = Math.floor((seconds_till % 86400) / 3600);
+                    minutes = Math.floor((seconds_till % 3600) / 60);
+                    seconds = Math.floor(seconds_till % 60);
+                    return intervalId = setInterval(function() {
+                        if (--seconds < 0) {
+                            seconds = 59;
+                            if (--minutes < 0) {
+                                minutes = 59;
+                                if (--hours < 0) {
+                                    hours = 23;
+                                    if (--days < 0) {
+                                        days = 0;
+                                    }
+                                }
+                            }
+                        }
+
+                        // Fix the numbers to make them look good
+                        if (days.toString() == 1) {
+                            $("#churchonline_counter .days").html("1 day &#8226;");
+                        } else {
+                            $("#churchonline_counter .days").html((hours.toString().length < 2 ? days : days) + " days &#8226;");
+                        };
+
+                        if (hours.toString() == 1) {
+                            $("#churchonline_counter .hours").html("1 hour &#8226;");
+                        } else {
+                            $("#churchonline_counter .hours").html((hours.toString().length < 2 ? hours : hours) + " hours &#8226;");
+                        };
+
+                        if (minutes.toString() == 1) {
+                            $("#churchonline_counter .minutes").html("1 minute &#8226;");
+                        } else {
+                            $("#churchonline_counter .minutes").html((minutes.toString().length < 2 ? minutes : minutes) + " minutes &#8226;");
+                        };
+
+                        $("#churchonline_counter .seconds").html((seconds.toString().length < 2 ? "0" + seconds : seconds) + " seconds");
+                        if (days === 00) {
+                            $('.daysAll').hide();
+                        };
+                        if (hours === 00) {
+                            $('.hoursAll').hide();
+                        };
+                        if (seconds === 0 && minutes === 10 && hours === 0 && days === 0) {
+                            return clearInterval(intervalId);
+                        };
+                        $("#eventTitle").html((data.response.item.title));
+                    }, 1000);
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                return console.log(thrownError);
+            }
+        });
+    });
+</script>

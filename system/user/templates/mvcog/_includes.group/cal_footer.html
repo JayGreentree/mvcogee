@@ -1,0 +1,103 @@
+{embed="_includes/footer-content"} {!-- Mobile Nav --}
+<script src="/_js/sidr.js"></script>
+
+{!-- Retina Friendly --}
+<script type="text/javascript" src="/_js/retina.js"></script>
+
+<script src="/_js/scripts.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+<script src="/themes/third_party/acs_bridge/jquery.calendar.js"></script>
+
+
+
+<script type="text/javascript">
+    var findtheCal = "74b25c3d-20ea-432f-90ba-a22000d547f8";
+    $(function() {
+        var cal = $('#calendar').calendar({
+            onDayClick: function($el, $contentEl, dateProperties) {
+
+                for (var key in dateProperties) {
+                    console.log(key + ' = ' + dateProperties[key]);
+                }
+
+            },
+            url: '{exp:acs_bridge:json fetch="events_list"}',
+            calId: findtheCal,
+            linkTemplate: '/calendar/event',
+            startIn: 0
+        });
+
+        // Set the title window to current month name
+        window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+
+        $month = $('#custom-month').html(cal.getMonthName()),
+            $year = $('#custom-year').html(cal.getYear());
+
+        checkSpecialMonths();
+
+        $('#custom-next').on('click', function() {
+            cal.gotoNextMonth(updateMonthYear);
+            checkSpecialMonths();
+        });
+        $('#custom-prev').on('click', function() {
+            cal.gotoPreviousMonth(updateMonthYear);
+            checkSpecialMonths();
+        });
+        $('#custom-current').on('click', function() {
+            cal.gotoNow(updateMonthYear);
+            checkSpecialMonths();
+        });
+
+        function updateMonthYear() {
+            $month.html(cal.getMonthName());
+            $year.html(cal.getYear());
+            // Update the window title to current month name
+            window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+        }
+
+        function checkSpecialMonths() {
+            if (cal.getMonthName() == "January" && cal.getYear() == "2014") {
+                $('.custom-calendar-full h2').hide();
+                $('.custom-month').hide();
+                $('.custom-year').hide();
+                $('.custom-calendar-GiantJanuary').show();
+                $('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
+            } else if (cal.getMonthName() == "June" && cal.getYear() == "2014" || cal.getMonthName() == "July" && cal.getYear() == "2014" || cal.getMonthName() == "August" && cal.getYear() == "2014") {
+                $('.custom-calendar-full h2').hide();
+                $('.custom-year').hide();
+                $('.custom-calendar-OneSweetSummer').show();
+                $('head').append('<link rel="stylesheet" type="text/css" href="/_css/onesweetsummer.css">');
+            } else {
+                $('.custom-calendar-full h2').show();
+                $('.custom-month').show();
+                $('.custom-year').show();
+                $('.custom-calendar-GiantJanuary').hide();
+                $('.custom-calendar-OneSweetSummer').hide();
+                $('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
+                $('link[rel=stylesheet][href~="/_css/onesweetsummer.css"]').remove();
+            }
+
+            if (cal.getMonthName() == "June" && cal.getYear() == "2014") {
+                $(".custom-month").css("color", "#f05032");
+                $(".fc-day_holder").css("backgroundColor", "#f05032");
+                $("span.fc-date").css("color", "#f05032");
+                $(".OneSweetSummer-body h2").css("color", "#f05032");
+            } else if (cal.getMonthName() == "July" && cal.getYear() == "2014") {
+                $(".custom-month").css("color", "#f48024");
+                $(".fc-day_holder").css("backgroundColor", "#f48024");
+                $("span.fc-date").css("color", "#f48024");
+                $(".OneSweetSummer-body h2").css("color", "#f48024");
+            } else if (cal.getMonthName() == "August" && cal.getYear() == "2014") {
+                $(".custom-month").css("color", "#eeb111");
+                $(".fc-day_holder").css("backgroundColor", "#eeb111");
+                $("span.fc-date").css("color", "#eeb111");
+                $(".OneSweetSummer-body h2").css("color", "#eeb111");
+            } else {
+                $(".custom-month").css("color", "rgba(0, 0, 0, 0.6)")
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

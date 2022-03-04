@@ -1,0 +1,23 @@
+{embed="_includes/header" title="Structure" bar="yes"}
+
+<div class="title-bar about-alt">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Structure <span>(Governance)</span></h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_8 fancy-page">
+		{exp:channel:entries channel="Pages" url_title="structure" limit="1"}
+			{page-body}
+		{/exp:channel:entries}
+	</div>
+	<div class="grid_4">
+		{embed="_component/sidebar-about"}
+	</div>
+</div>
+
+{embed="_includes/footer"}

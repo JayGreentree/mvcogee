@@ -1,0 +1,130 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	StartServiceLiveCheck1();
+	StartGetStreamConnections();
+});
+
+function StartServiceLiveCheck1() {
+	UpdateServiceLiveCheck1();
+	setTimeout("StartServiceLiveCheck1()", 5000);
+}
+
+function UpdateServiceLiveCheck1() {
+	$.ajax({
+		url: "/_component/islive",
+		success: function(data) {
+			if (data.indexOf("true") != -1) {
+				$("#service_live").html("<button style='background-color:#7f3e19;'><a onclick='confirm_turn_service_off()'>Turn it OFF</a></button>");
+				$("#service_live-noadmin").html("<p style='color:#7f3e19;text-align:right;padding-top:5px'><a href='http://live.journeychurch.tv' target='_blank' style='color:#7f3e19'>THERE'S A LIVE EXPERIENCE RIGHT NOW</a></p>")
+			}
+			else {
+				$("#service_live").html("<button class='pull-right'><a onclick='confirm_turn_service_on()'>Turn it ON</a></button>");
+				$("#service_live-noadmin").html("<p style='text-align:right'>No live experience right now</p>")
+			}
+		}
+	});
+}
+
+function confirm_turn_service_on() {
+	var r=confirm("Are you sure you want to turn the experience ON?");
+	if (r==true) { 
+		$.ajax({ 
+			url: "/_component/turn_service/on/"
+		}).done(function(data) {
+				if (data.indexOf("Only") != -1) {
+					ShowTextModal(data);
+				}
+				UpdateServiceLiveCheck();
+				location.reload();
+			});
+	}
+}
+
+function confirm_turn_service_off() {
+	var r=confirm("Are you sure you want to turn the experience OFF?");
+	if (r==true) { 
+		$.ajax({ 
+			url: "/_component/turn_service/off/"
+		}).done(function(data) { 
+				if (data.indexOf("Only") != -1) {
+					ShowTextModal(data);
+				}
+				UpdateServiceLiveCheck();
+				location.reload();
+			});
+	}
+}
+</script>
+
+{!-- Chartbeat Code --}
+<script type="text/javascript">
+	$(document).ready(function() {
+		StartChartbeat();
+	});
+	
+	function StartChartbeat() {
+		UpdateChartbeat();
+		setTimeout("StartChartbeat()", 5000);
+	}
+	
+	function UpdateChartbeat() {
+		var current_pages_html;
+		var title; 
+		
+		$.getJSON('/_scripts/chartbeat.php?type=current_pages', function(json) {
+			current_pages_html = "";
+			for (i = 0; i < json.length; i++) {
+				if (json[i].i.length > 55) { title = json[i].i.substring(0,55) + "…"; }
+				else { title = json[i].i; }
+				
+				if (title.length) {
+					if (json[i].visitors > 1) {
+						current_pages_html += json[i].visitors + " viewers - <strong><a target='_blank' href='http://" + json[i].path + "'>" + title + "</a></strong><br>";
+					}
+					else {
+						current_pages_html += json[i].visitors + " viewer - <strong><a target='_blank' href='http://" + json[i].path + "'>" + title + "</a></strong><br>";
+					}
+				}
+			}
+			
+			$("#current_pages").html(current_pages_html.substring(0, current_pages_html.length - 4));		
+		});
+		
+		// People visit count
+		$.getJSON('/_scripts/chartbeat.php?type=quick_stats', function(json) {
+			$("#total_visitors").html(json.people);
+			$("#total_visitors-mini").html(json.people);
+		});
+	}
+	
+	function StartGetStreamConnections() {
+		GetStreamConnections();
+		setTimeout("StartGetStreamConnections()", 30000);
+	}
+
+	function GetStreamConnections() {
+		$.get("/_scripts/sm_numbers.php", function(data) {	
+			var json;
+			try {
+				json = $.parseJSON(data);
+			}
+			catch (e) {
+				$("#connections").html("0");
+			}
+	
+			if (json) {
+				$("#connections").html(json.total_users);
+				//current_viewers.refresh(json.total_users);
+				var html_string = "";
+			
+				for (i = 0; i < json.streams.length; i++) {
+					html_string += "<p style='font-size:12px'>" + "<strong>Streams:</strong><br>" + json.streams[i].streamname + "</p>";
+				}
+				$("#streams").html(html_string);
+			}
+		});
+	}
+</script>

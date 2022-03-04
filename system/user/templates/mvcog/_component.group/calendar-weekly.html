@@ -1,0 +1,52 @@
+<div class="happening">
+	<h2>Happening This Week <a href="/calendar"><i class="icon-chevron-sign-right pull-right"></i></a></h2>
+	
+	<div id="cal-week">
+		<ul class="cal-week-choices">
+			<li><a href="#day-sun">25<span>Sunday</span></a></li>
+			<li><a href="#day-mon">26<span>Monday</span></a></li>
+			<li><a href="#day-tues">27<span>Tuesday</span></a></li>
+			<li><a href="#day-wed">28<span>Wednesday</span></a></li>
+			<li><a href="#day-thurs">29<span>Thursday</span></a></li>
+			<li><a href="#day-fri">30<span>Friday</span></a></li>
+			<li><a href="#day-sat">31<span>Saturday</span></a></li>
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+		<div class="cal-week-details">
+			<div id="day-sun">
+				8:30am - <a href="/locations">Worship Experience</a><br>
+				10:00am - <a href="/locations">Worship Experience</a><br>
+				11:30am - <a href="/locations">Worship Experience</a><br>
+				3:00pm - <a href="/calendar/event/f419a98c-a5e3-45c4-a498-a20c01695cce">M(e)3.20 Retreat</a><br>
+				6:00pm - <a href="/locations">Worship Experience</a>
+			</div>
+			<div id="day-mon">
+				No events listed for the day
+			</div>
+			<div id="day-tues">
+				7:00am - <a href="/calendar/event/bb7a7caf-a437-4ced-9ff7-a1b001075a88">JBL Breakfast</a><br>
+				9:00pm - <a href="/connect/collegejourney">Lifestream - College Worship Experience</a>
+			</div>
+			<div id="day-wed">
+				6:30pm - <a href="/calendar/event/c113a8b0-5aff-4167-9d9a-a21200bbaded">Student Journey</a>
+			</div>
+			<div id="day-thurs">
+				No events listed for the day
+			</div>
+			<div id="day-fri">
+				No events listed for the day
+			</div>
+			<div id="day-sat">
+				No events listed for the day
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(function() {
+	var d = new Date();
+	var n = d.getDay();
+	$( "#cal-week" ).tabs({ active: n });
+});
+</script>

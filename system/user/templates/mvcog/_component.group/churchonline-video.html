@@ -1,0 +1,76 @@
+<style>
+    body {
+        margin: 0;
+        background: none transparent;
+    }
+    
+    div.archive {
+        background-color: #b6985a;
+        color: #fff;
+        padding: 5px;
+        font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    
+    div.archive a {
+        color: #FFF!important;
+        text-decoration: none!important;
+    }
+    
+    div.archive a:hover {
+        text-decoration: underline!important;
+    }
+    /* Responsive embeds */
+    
+    .embed-responsive {
+        position: relative;
+        display: block;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    .embed-responsive-16by9 {
+        padding-bottom: 56.25%
+    }
+    
+    .embed-responsive .embed-responsive-item,
+    .embed-responsive embed,
+    .embed-responsive iframe,
+    .embed-responsive object,
+    .embed-responsive video {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css" />
+<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'> {if service_live == "true"} {!-- NORECORD (live on encoder): 1482 | DVR: 1573 | LIVE (DVR on encoder): 1254 --}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{live_videoid}' frameborder='0'></iframe>
+</div>
+{if:else} {!--}
+<div style="margin:0 auto">
+    <img src="/_img/p2pLOGO.png" style="height:240px;display:block;margin:0 auto">
+</div>
+<div class="archive"><a href="/media" target="_blank">Watch archived media</a> <i class="fa-chevron-right fa"></i></div>
+{--} {exp:channel:entries channel="Media" category="9" limit="1" orderby="media-date" sort="desc"} {if media-video}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+</div>
+<div class="clear"></div>
+
+{if:elseif media-youtube}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="clear"></div>
+{/if} {/exp:channel:entries}
+<div class="clear"></div>
+{/if}

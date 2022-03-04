@@ -1,0 +1,133 @@
+{embed="_includes/header" bar="yes" title="Events"}
+
+<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
+
+{if segment_3 == "baptism" OR segment_3 == "44566ffe-b5dc-4c0b-a35c-a20c00c06a5e"}
+	{embed="_component/event-baptism"}
+{if:elseif segment_3 == "awakening" OR segment_3 == "771eb5ea-c3e8-4e87-a034-a19600d8946a"}
+	{embed="_component/event-awakening"}
+{if:elseif segment_3 == "7787bd58-fcab-4b12-b093-a2df01258bbc" OR segment_3 == "goodfriday"}
+	{embed="_component/event-goodfriday"}
+{if:elseif segment_3 == "michaeljr" OR segment_3 == "ef1198ce-ea4d-4e51-ae68-a2af00c6ae91"}
+	{redirect="main/michaeljr"}
+{if:elseif segment_3 == "c402db02-8496-4a68-a116-a29d01246d7c" OR segment_3 == "girlfriends"}
+	{embed="_component/event-girlfriends"}
+{if:elseif segment_3 == "9960a460-3f98-4b38-ab97-a489011cde72" OR segment_3 == "carshow"}
+	{embed="_component/event-carshow"}
+{if:elseif segment_3 == "68e87c44-f09a-482b-b49a-a49900f1f39a"}
+	{embed="_component/event-carshow"}
+{if:elseif segment_3 == "051211d7-3548-40c7-9934-a3250164b90d" OR segment_3 == "35a6914c-72c6-4266-98e1-a3250164e85c" OR segment_3 == "mckbd"}
+	{embed="_component/event-mckbd"}
+{if:elseif segment_3 == ""}
+	{redirect="calendar/index"}
+{if:else}
+	<div id="event"></div>
+	<div class="register-button"></div>
+	{exp:channel:entries channel="events" url_title="{segment_3}"}
+		<div class="container">
+			<div class="grid_12">
+				<a href="{event-reg}" target='_blank'><button class='pull-right'><i class='fa fa-ticket'></i> Register Now</button></a>
+			</div>
+		</div>
+	{/exp:channel:entries}
+{/if}
+<script src="/_scripts/acs/handlebars-v2.0.0.js"></script>
+<script src="/_scripts/acs/moment.min.js"></script>
+
+<script id="event-template" type="text/x-handlebars-template">
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>{{EventName}}</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="grid_12">
+			<div class="entry fancy-page">
+				<h2>Summary</h2>
+				{{#if StartTime}}<p><i class="fa fa-clock-o med-icon"></i> {{formatDate StartTime EndTime}}</p>{{/if}}
+				{{#if Location}}<p><i class="fa fa-map-marker med-icon"></i> {{Location}}</p>{{/if}}
+				<br>
+
+				{{#if Description}}
+				<h2>Details</h2>
+				{{{Description}}}
+				{{/if}}
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript">
+	Handlebars.registerHelper('formatDate', function(starttime, endtime) {
+		// If start and end time are on same day
+		if (moment(starttime).format('MDYYYY') == moment(endtime).format('MDYYYY')) {
+			// If starts at 12am, is an all day event
+			if (moment(starttime).format('Hm') == '00') {
+				return moment(starttime).format('MMMM Do YYYY') + " - All Day";
+			}
+			else {
+				return moment(starttime).format('dddd, MMMM Do, YYYY [from] h:mm A [-] ') + moment(endtime).format('h:mm A');
+			}
+		}
+
+		// Multi-day event, show both start and end dates and times
+		return moment(starttime).format('dddd, MMMM Do, YYYY [from] h:mm A [-] ') + moment(endtime).zone("-01:00").format('dddd, MMMM Do, YYYY h:mm A');
+	});
+
+	var source   = $("#event-template").html();
+	var template = Handlebars.compile(source);
+
+	$.ajax({
+		type: "GET",
+		url: "/_scripts/acs/get_event_detail.php",
+		data: { eventid: "{segment_3}", {if segment_4}starttime: "{segment_4}",{/if} {if segment_5}endtime: "{segment_5}"{/if} },
+		success: function (data) {
+
+			$("#event").html(template($.parseJSON(data)));
+		}
+	});
+</script>
+
+{embed="_includes/footer-content"}
+
+<script type="text/javascript">
+var _sf_async_config={uid:49423,domain:"journeychurch.tv",useCanonical:true};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement('script');
+    e.setAttribute('language', 'javascript');
+    e.setAttribute('type', 'text/javascript');
+    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != 'function') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23134458-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+{!-- Mobile Nav --}
+<script src="/_js/sidr.js"></script>
+
+<script src="/_js/scripts.js"></script>
+</body>
+</html>

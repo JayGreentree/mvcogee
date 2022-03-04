@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+	<atom:link href="/media/audio/?podcast" rel="self" type="application/rss+xml" />
+	<title>JourneyChurch.tv Podcast</title>
+	<itunes:author></itunes:author>
+	<description>Transforming a city one life at a time.</description>
+	<link></link>
+	<language>en-us</language>
+	<copyright></copyright>
+	<itunes:explicit>no</itunes:explicit>
+	<itunes:owner>
+		<itunes:name></itunes:name>
+		<itunes:email></itunes:email>
+	</itunes:owner>
+
+	<lastBuildDate>Sun, 01 Sep 2013 10:00:00 +0000</lastBuildDate>
+	<pubDate>Sun, 01 Sep 2013 10:00:00 +0000</pubDate>
+	<generator>JourneyChurch.tv</generator>
+	<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+	<category>Religion &amp; Spirituality</category>
+	<itunes:category text="Religion &amp; Spirituality"></itunes:category>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Neighbors%20-%20Sept%201%2C%202013.mp3</guid>
+		<title>Neighbors - Sept. 1, 2013</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=122</link>
+		<itunes:author>Adam Barnett</itunes:author>
+		<description><![CDATA[Pastor Adam explores Luke 10 to break down the various life philosophies at work in the story of the Good Samaritan.]]></description>
+		<itunes:summary><![CDATA[Pastor Adam explores Luke 10 to break down the various life philosophies at work in the story of the Good Samaritan.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Neighbors%20-%20Sept%201%2C%202013.mp3" length="76502408" type="audio/mpeg" />
+		<itunes:duration>31:47</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 01 Sep 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=My%20Church%20is%20Kind%20of%20a%20Big%20Deal%202013%20-%20Week%202.mp3</guid>
+		<title>My Church is Kind of a Big Deal - Week 2</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=121</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Everyone has an innate desire to belong and Paul encourages us in Ephesians to find our belonging and home in the House of God. And we are promised in the Psalms that if we plant ourselves in the courts of our God, we will flourish!]]></description>
+		<itunes:summary><![CDATA[Everyone has an innate desire to belong and Paul encourages us in Ephesians to find our belonging and home in the House of God. And we are promised in the Psalms that if we plant ourselves in the courts of our God, we will flourish!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=My%20Church%20is%20Kind%20of%20a%20Big%20Deal%202013%20-%20Week%202.mp3" length="90419804" type="audio/mpeg" />
+		<itunes:duration>37:33</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 25 Aug 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=My%20Church%20is%20Kind%20of%20a%20Big%20Deal%202013%20-%20Week%201.mp3</guid>
+		<title>My Church is Kind of a Big Deal - Week 1</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=120</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Each and every one of us has a story and that story can be shaped by many things. Pastor Clark unpacks three biblical stories of how people encountered Christ and how their stories changed forever.]]></description>
+		<itunes:summary><![CDATA[Each and every one of us has a story and that story can be shaped by many things. Pastor Clark unpacks three biblical stories of how people encountered Christ and how their stories changed forever.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=My%20Church%20is%20Kind%20of%20a%20Big%20Deal%202013%20-%20Week%201.mp3" length="98786420" type="audio/mpeg" />
+		<itunes:duration>41:02</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 18 Aug 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Face%20to%20Face%20-%20Week%202.mp3</guid>
+		<title>Face to Face - Week 2</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=119</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[We are called to love our neighbors as ourselves, but how can you effectively do that if you don't first love yourself? Pastor Clark unpacks this simple truth and how we are called to find our worth in what Christ did on the cross.]]></description>
+		<itunes:summary><![CDATA[We are called to love our neighbors as ourselves, but how can you effectively do that if you don't first love yourself? Pastor Clark unpacks this simple truth and how we are called to find our worth in what Christ did on the cross.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Face%20to%20Face%20-%20Week%202.mp3" length="71053376" type="audio/mpeg" />
+		<itunes:duration>29:32</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 11 Aug 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Face%20to%20Face%20-%20Week%201.mp3</guid>
+		<title>Face to Face - Week 1</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=118</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Pastor Clark kicks off a great series, Face to Face by telling the story of the sick woman in Mark 5 and how it shows us that all it takes is Just One Touch!]]></description>
+		<itunes:summary><![CDATA[Pastor Clark kicks off a great series, Face to Face by telling the story of the sick woman in Mark 5 and how it shows us that all it takes is Just One Touch!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Face%20to%20Face%20-%20Week%201.mp3" length="96385064" type="audio/mpeg" />
+		<itunes:duration>40:05</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 04 Aug 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%206.mp3</guid>
+		<title>Heroes - Week 6</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=117</link>
+		<itunes:author>Mac Richard</itunes:author>
+		<description><![CDATA[Pastor Mac Richard concludes our Heroes series with an amazing message about Gideon and the battles we all fight in our own lives!]]></description>
+		<itunes:summary><![CDATA[Pastor Mac Richard concludes our Heroes series with an amazing message about Gideon and the battles we all fight in our own lives!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%206.mp3" length="56898496" type="audio/mpeg" />
+		<itunes:duration>38:53</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 28 Jul 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%205.mp3</guid>
+		<title>Heroes - Week 5</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=116</link>
+		<itunes:author>Rod Conant</itunes:author>
+		<description><![CDATA[Pastor Rod continues our Heroes series with the story of Abraham and how God Always Does the Right Thing!]]></description>
+		<itunes:summary><![CDATA[Pastor Rod continues our Heroes series with the story of Abraham and how God Always Does the Right Thing!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%205.mp3" length="56554048" type="audio/mpeg" />
+		<itunes:duration>38:38</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%204.mp3</guid>
+		<title>Heroes - Week 4</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=115</link>
+		<itunes:author>Ray Johnston</itunes:author>
+		<description><![CDATA[Pastor Ray Johnston, Senior Pastor at Bayside Church in California, joined us for the 4th week of our Heroes series. Pastor Ray brought an amazing message about Hope and the story of Nehemiah!]]></description>
+		<itunes:summary><![CDATA[Pastor Ray Johnston, Senior Pastor at Bayside Church in California, joined us for the 4th week of our Heroes series. Pastor Ray brought an amazing message about Hope and the story of Nehemiah!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%204.mp3" length="64869760" type="audio/mpeg" />
+		<itunes:duration>44:25</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 14 Jul 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%203.mp3</guid>
+		<title>Heroes - Week 3</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=114</link>
+		<itunes:author>David Smith</itunes:author>
+		<description><![CDATA[Pastor David Smith, Executive Senior Pastor at Gateway Church, joined us for our third week talking about our biblical heroes. He gave a great message about John the Baptist and the call on his life.]]></description>
+		<itunes:summary><![CDATA[Pastor David Smith, Executive Senior Pastor at Gateway Church, joined us for our third week talking about our biblical heroes. He gave a great message about John the Baptist and the call on his life.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%203.mp3" length="47876608" type="audio/mpeg" />
+		<itunes:duration>32:37</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 07 Jul 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%202.mp3</guid>
+		<title>Heroes - Week 2</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=113</link>
+		<itunes:author>Bryan Waldenville</itunes:author>
+		<description><![CDATA[Pastor Bryan Waldenville continues our Heroes series with a word about Noah and how we are called to be difference makers.]]></description>
+		<itunes:summary><![CDATA[Pastor Bryan Waldenville continues our Heroes series with a word about Noah and how we are called to be difference makers.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%202.mp3" length="47897344" type="audio/mpeg" />
+		<itunes:duration>32:38</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 30 Jun 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%201.mp3</guid>
+		<title>Heroes - Week 1</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=112</link>
+		<itunes:author>Adam Barnett</itunes:author>
+		<description><![CDATA[Pastor Adam Barnett kicks off our new series, Heroes, with a great message about the biblical hero Elijah!]]></description>
+		<itunes:summary><![CDATA[Pastor Adam Barnett kicks off our new series, Heroes, with a great message about the biblical hero Elijah!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Heroes%20-%20Week%201.mp3" length="49094272" type="audio/mpeg" />
+		<itunes:duration>33:28</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 23 Jun 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%203.mp3</guid>
+		<title>Joseph - Week 3</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=111</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Pastor Clark shares a great word about creating environments where people experience the Presence of God & His Power transforms their life.]]></description>
+		<itunes:summary><![CDATA[Pastor Clark shares a great word about creating environments where people experience the Presence of God & His Power transforms their life.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%203.mp3" length="45274240" type="audio/mpeg" />
+		<itunes:duration>31:12</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 16 Jun 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%202.mp3</guid>
+		<title>Joseph - Week 2</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=110</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Pastor Clark brings a great message from the life of Joseph about Where Greatness Begins!]]></description>
+		<itunes:summary><![CDATA[Pastor Clark brings a great message from the life of Joseph about Where Greatness Begins!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%202.mp3" length="54297280" type="audio/mpeg" />
+		<itunes:duration>37:28</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 09 Jun 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%201.mp3</guid>
+		<title>Joseph - Week 2</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=109</link>
+		<itunes:author>Rod Conant</itunes:author>
+		<description><![CDATA[Pastor Rod brought a great message Sunday kicking off our new series, Joseph! Don't Give Up!]]></description>
+		<itunes:summary><![CDATA[Pastor Rod brought a great message Sunday kicking off our new series, Joseph! Don't Give Up!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=Joseph%20-%20Week%201.mp3" length="51874048" type="audio/mpeg" />
+		<itunes:duration>35:47</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 02 Jun 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=I%20Heart%20This%20City%20-%20Week%204.mp3</guid>
+		<title>I Heart This City - Week 4</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=107</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[In the last week of our series, I Heart This City, Pastor Clark brings a message of hope and vision of God's plan to rebuild the city!]]></description>
+		<itunes:summary><![CDATA[In the last week of our series, I Heart This City, Pastor Clark brings a message of hope and vision of God's plan to rebuild the city!]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=I%20Heart%20This%20City%20-%20Week%204.mp3" length="46441664" type="audio/mpeg" />
+		<itunes:duration>32:04</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 26 May 2013 10:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<guid>http://192.185.19.128/media/audio/?show&amp;file_name=I%20Heart%20This%20City%20-%20Week%203.mp3</guid>
+		<title>I Heart This City - Week 3</title>
+		<link>http://192.185.19.128/media/audio/?sermon_id=108</link>
+		<itunes:author>Clark Mitchell</itunes:author>
+		<description><![CDATA[Pastor Clark talks about how the God's plan is worth the wait and not confusing the rewards of success with success itself.]]></description>
+		<itunes:summary><![CDATA[Pastor Clark talks about how the God's plan is worth the wait and not confusing the rewards of success with success itself.]]></itunes:summary>
+		<enclosure url="http://192.185.19.128/media/audio/?show&amp;file_name=I%20Heart%20This%20City%20-%20Week%203.mp3" length="53405504" type="audio/mpeg" />
+		<itunes:duration>36:54</itunes:duration>
+		<category>Sunday Morning</category>
+		<pubDate>Sun, 19 May 2013 10:00:00 +0000</pubDate>
+	</item>
+	</channel>
+</rss>

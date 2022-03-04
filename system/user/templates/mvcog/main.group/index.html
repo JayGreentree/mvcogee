@@ -1,0 +1,272 @@
+{embed="_includes/header" bar="no"}
+{!-- Sliding box addons --}
+<link rel="stylesheet" type="text/css" href="/_css/component.css" />
+<link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
+
+<script src="/_js/modernizr.custom.js"></script>
+<script src="/_js/lib.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<div id="layerslider-container">
+
+	<div id="layerslider" style="width:100%;height:450px;">
+		{exp:channel:entries channel="Slides"}
+			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+				{if slides-img}<img class="ls-bg" src="{slides-img}">{/if}
+				{if slides-img-fg}<img class="ls-s3 si" src="{slides-img-fg}" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">{/if}
+				<a href="{slides-link}" class="ls-link"></a>
+			</div>
+		{/exp:channel:entries}
+	</div>
+</div>
+
+<div class="clear"></div>
+
+{if site-alert != " "}
+	{if {current_time format="%Y%m%d"} == "20160426"}
+	<div id="page-alert">
+		<div class="container">
+			<div class="grid_12">
+				<h2>{site-alert}</h2>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{/if}
+{/if}
+
+<div id="full-only">
+	<div id="devos-bar">
+		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+			<div class="container">
+				<div class="grid_12">
+					<a href="/devos/{url_title}"><strong>{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Read Today's Devotional{if:else}Devotional{/if} |</strong> {entry_date format="%F %j"} - {title} {if devos-author}by {devos-author}{/if}</a>
+					{!--}<a href="/devos">31 Days of Proverbs  <i class="fa fa-angle-right" aria-hidden="true"></i></a>{--}
+				</div>
+			</div>
+			<div class="clear"></div>
+		{/exp:channel:entries}
+	</div>
+
+	<div class="container clearfix boxes">
+		<ul class="cs-style-2">
+			<li class="grid_4">
+				<figure>
+					<a href="/new">
+						<div class="slide_content box1">
+							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+							First time here?
+							<span>Learn more about us</span>
+						</div>
+						<figcaption>
+							<p>Who we are</p>
+						</figcaption>
+					</a>
+				</figure>
+			</li>
+			<li class="grid_4">
+				<figure>
+					<a href="/locations">
+						<div class="slide_content box2">
+							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+							Location
+							<span>&amp; times</span>
+						</div>
+						<figcaption>
+							<p>Where We Gather</p>
+						</figcaption>
+					</a>
+				</figure>
+			</li>
+			<li class="grid_4">
+				<figure>
+					{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+						<a href="/media/{url_title}">
+							<div class="slide_content box3">
+								<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+								<span>Watch the</span>
+								Latest Message
+							</div>
+							<figcaption>
+								<p>{if media-shrt-title}{media-shrt-title}{if:else}{title}{/if}</p>
+							</figcaption>
+						</a>
+					{/exp:channel:entries}
+				</figure>
+			</li>
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="mobile-only">
+	<div class="container clearfix">
+		<a href="/new">
+			<div class="grid_12 mobile_boxes box1">
+				<strong>First time here?</strong><br>
+				Learn more about us
+			</div>
+		</a>
+
+		<a href="/locations">
+			<div class="grid_12 mobile_boxes box2">
+				<strong>Locations &amp; Times</strong><br>
+				Where We Gather
+			</div>
+		</a>
+
+		<a href="/calendar">
+			<div class="grid_12 mobile_boxes box4">
+				<strong>What's Happening?</strong><br>
+				View the Calendar
+			</div>
+		</a>
+
+		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+		<a href="/media/{url_title}">
+			<div class="grid_12 mobile_boxes box3">
+				<strong>Watch the Latest Message:</strong><br>
+				{title}
+			</div>
+		</a>
+		{/exp:channel:entries}
+
+		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+		<a href="/devos/{url_title}">
+			<div class="grid_12 mobile_boxes box5">
+				<strong>Daily Devotional</strong> - {entry_date format="%F %j"}:</strong><br>
+				{title} {if devos-author}by {devos-author}{/if}
+			</div>
+		</a>
+		{/exp:channel:entries}
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div id="full-only" class="grid_8">
+		<div class="clear"></div>
+		<div class="happening">
+			<h2>Happening This Week <a href="/calendar"><i class="fa fa-chevron-right pull-right" style="padding-top:7px"></i></a></h2>
+
+			<div id="cal-week">
+				<ul class="cal-week-choices">
+					<li id="cal-week-box"><a href="#day-sun"><i class="sunDate"></i> <span>Sunday</span></a></li>
+					<li id="cal-week-box"><a href="#day-mon"><i class="monDate"></i> <span>Monday</span></a></li>
+					<li id="cal-week-box"><a href="#day-tues"><i class="tuesDate"></i> <span>Tuesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-wed"><i class="wedDate"></i> <span>Wednesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-thurs"><i class="thursDate"></i> <span>Thursday</span></a></li>
+					<li id="cal-week-box"><a href="#day-fri"><i class="friDate"></i> <span>Friday</span></a></li>
+					<li id="cal-week-box"><a href="#day-sat"><i class="satDate"></i> <span>Saturday</span></a></li>
+					<div class="clear"></div>
+				</ul>
+				<div class="clear"></div>
+				<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+				<script type="text/javascript">
+					var weekstart = moment().weekday(0).format("YYYY-MM-DD");
+					$(document).ready(function() {
+						// Replace selector box dates
+						$('i.sunDate').replaceWith(moment().weekday(0).format("D"));
+						$('i.monDate').replaceWith(moment().weekday(1).format("D"));
+						$('i.tuesDate').replaceWith(moment().weekday(2).format("D"));
+						$('i.wedDate').replaceWith(moment().weekday(3).format("D"));
+						$('i.thursDate').replaceWith(moment().weekday(4).format("D"));
+						$('i.friDate').replaceWith(moment().weekday(5).format("D"));
+						$('i.satDate').replaceWith(moment().weekday(6).format("D"));
+
+						// Set correct box day
+						var d = new Date();
+			    		var n = d.getDay();
+			    		$( "#cal-week" ).tabs({ active: n });
+
+						// Replace calendar content from ACS
+						$.ajax({
+							url: "/_scripts/acs/get_week_events.php",
+							data: {start: moment().weekday(-1).format("L"), stop: moment().weekday(7).format("L")},
+							dataType: "text",
+							success: function(data) {
+								var json = $.parseJSON(data);
+								for(var i = 0; i < json.Page.length; ++ i) {
+									if //Sunday
+									(moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(0).format("YYYY-MM-DD")) {
+										$('#day-sun').find('p.noevents').remove();
+										$('#day-sun').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Monday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(1).format("YYYY-MM-DD")) {
+										$('#day-mon').find('p.noevents').remove();
+										$('#day-mon').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Tuesday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(2).format("YYYY-MM-DD")) {
+										$('#day-tues').find('p.noevents').remove();
+										$('#day-tues').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Wednesday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(3).format("YYYY-MM-DD")) {
+										$('#day-wed').find('p.noevents').remove();
+										$('#day-wed').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Thursday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(4).format("YYYY-MM-DD")) {
+										$('#day-thurs').find('p.noevents').remove();
+										$('#day-thurs').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Friday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(5).format("YYYY-MM-DD")) {
+										$('#day-fri').find('p.noevents').remove();
+										$('#day-fri').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Saturday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(6).format("YYYY-MM-DD")) {
+										$('#day-sat').find('p.noevents').remove();
+										$('#day-sat').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									}
+								};
+								$('p.noevents').show();
+							}
+						});
+					});
+				</script>
+				<div class="cal-week-details">
+					<div id="day-sun"><p class="noevents">No events listed for today</p></div>
+					<div id="day-mon"><p class="noevents">No events listed for today</p></div>
+					<div id="day-tues"><p class="noevents">No events listed for today</p></div>
+					<div id="day-wed"><p class="noevents">No events listed for today</p></div>
+					<div id="day-thurs"><p class="noevents">No events listed for today</p></div>
+					<div id="day-fri"><p class="noevents">No events listed for today</p></div>
+					<div id="day-sat"><p class="noevents">No events listed for today</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_4">
+		<div class="latest">
+			<h2>Latest News and Updates</h2>
+			{exp:channel:entries channel="Latest" orderby="date" sort="desc"}
+				<div class="latest-entry">
+					<h3>{if latest-link}<a href="{latest-link}">{/if}{title}{if latest-link}</a>{/if}</h3>
+					{if latest-body}
+						<p>{latest-body}</p>
+					{/if}
+				</div>
+			{/exp:channel:entries}
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script src="/_js/layerslider.js"type="text/javascript"></script>
+<script src="/_js/layerslider.transitions.js"type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#layerslider').layerSlider({
+			skinsPath : '/themes/assets/',
+			skin : 'fullwidth',
+			autoStart : true,
+			navStartStop : false,
+			responsive : false,
+			responsiveUnder : 966,
+			sublayerContainer : 966,
+			hoverPrevNext : false,
+			thumbnailNavigation : false,
+			showCircleTimer: false,
+			touchnav: true
+		});
+	});
+</script>
+<script src="/_js/toucheffects.js"></script>
+
+{embed="_includes/footer"}

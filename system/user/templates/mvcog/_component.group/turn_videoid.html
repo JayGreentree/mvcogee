@@ -1,0 +1,9 @@
+{if group_id == "1" || group_id == "22" || last_segment == "n01w!llFindm3"}
+	<?php
+		$sql="UPDATE exp_snippets SET snippet_contents = '{segment_3}' WHERE snippet_name='live_videoid'";	
+		mysql_query($sql) or die();
+	?>		
+	Updated to {segment_3}
+{if:else}
+	Oops. You aren't logged in.
+{/if}

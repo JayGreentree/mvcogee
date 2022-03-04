@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+
+		<meta name="description" content="Father Son Retreat at Camp Wow! It's an awesome time for fathers and sons!">
+		<meta name="keywords" content="Father Son Retreat 2015 Camp Wow Journey Church Norman OK">
+
+		<title>Father Son Retreat 2015</title>
+
+		<!--{!-- Set pretty fonts --}-->
+		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/688704/css/fonts.css" />
+
+		<!--{{!-- Cool Font Icons --}-->
+		<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
+
+		<!--{{!-- Set other prettiness factors --}-->
+		<link rel="stylesheet" href="/_css/normalize.css">
+		<link rel="stylesheet" href="/_css/base.css">
+		<link rel="stylesheet" href="/_css/grid.css">
+		<link rel="stylesheet" href="/_css/fatherson.css">
+
+		<link rel='stylesheet' media='screen and (min-width: 768px)' href='/_css/full.css' />
+		<link rel='stylesheet' media='screen and (max-width: 767px)' href='/_css/mobile.css' />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body>
+		<script>
+			$(document).ready(function() {
+				setTimeout(
+					function() {
+						$('#title .wrapper').fadeIn('slow');
+					}
+				, 750);
+				var eventOffset = $('#event').offset();
+				var detailsOffset = $('#details').offset();
+				var activitiesOffset = $('#activities').offset();
+
+				$(document).scroll(function() {
+					var scrollTop = $(document).scrollTop();
+
+					if (scrollTop >= eventOffset.top*1.75) {
+						$('#event .wrapper').fadeIn('slow');
+					}
+
+					if (scrollTop >= detailsOffset.top*1.75) {
+						$('#details .wrapper').fadeIn('slow');
+					}
+
+					if (scrollTop >= activitiesOffset.top*1.75) {
+						$('#activities .wrapper').fadeIn('slow');
+						$('#register .wrapper').fadeIn('slow');
+					}
+				});
+			});
+		</script>
+		<div class="container">
+			<section id="title">
+				<div class="wrapper">
+					<div class="grid_12">
+						<h3>4th Annual</h3>
+						<h1>Father<br>Son<br>Retreat</h1><br>
+					</div>
+					<div class="grid_5 line"></div>
+					<div class="grid_2 at">
+						<h3>At</h3>
+					</div>
+					<div class="grid_5 line omega"></div>
+					<div class="grid_12">
+						<h2>Camp Wow</h2><br><h4>All ages are welcome!</h4>
+					</div>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+
+			<section id="event">
+				<div class="wrapper">
+					<h1>September 25<sup>th</sup> - 26<sup>th</sup></h1><br>
+					<h2>$45/Person</h2><br>
+					<h2>Early Arrival: 4:00PM</h2><br>
+					<h2>Friday Dinner On Your Own</h2>
+					<h3>Worship: 7:00PM, Saturday Departure by 3:00PM</h3>
+					<h4>saturday meals: breakfast & lunch</h4>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+
+			<section id="details">
+				<div class="wrapper">
+					<div class="grid_6">
+						<h3>What to Bring:</h3>
+						<ul>
+							<li>Bedding</li>
+							<li>Toiletries</li>
+							<li>Swim Suit</li>
+							<li>Clothes</li>
+							<li>Comfortable Shoes</li>
+							<li>Towels</li>
+						</ul>
+					</div>
+					<div class="grid_6">
+						<h3>Transportation:</h3>
+						<p>Your are responsible for your own transportation to camp. Plan for a two hour and twenty minute drive</p><br>
+
+						<h3>Cost:</h3>
+						<p>$45 per person or $100 max per family (2+ sons).</p><br>
+
+						<h3>Address:</h3>
+						<p>8256 Diagonal 1500 Road,<br>
+							Stuart, OK 74570</p>
+					</div>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+
+			<section id="activities">
+				<div class="wrapper">
+					<h2>Swimming, Fishing, Canoing, Worship, Bonfire, Hayride</h2>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+		</div>
+		{embed="_includes/footer"}
+	<body>
+</html>

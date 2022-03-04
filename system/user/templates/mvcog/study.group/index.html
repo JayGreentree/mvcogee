@@ -1,0 +1,112 @@
+{!--
+	2. Fix PHP error on series without media entries
+	3. Make dates of series relate to months PLUS certain week periods if only a couple weeks long (June 2 - June 9 [?])
+--}
+
+{embed="_includes/header-opener" title="{if segment_2=='lifestream'}Lifestream Media{if:elseif segment_2 != ''}{exp:channel:entries channel='series' dynamic='on' limit='1'}{title}{/exp:channel:entries}{if:elseif segment_1=='media'}Media{if:else}Studies{/if}"}
+{embed="_includes/header-closer" bar="yes"}
+
+{if segment_2 == ""}
+	<div class="title-bar media-title">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Studies</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container media clearfix">
+		{exp:channel:entries channel="series" category="7" sort="desc" orderby="series-start" dynamic="no"}
+			{if url_title=="stand-alone"}
+				{parents channel="media"}
+					<div class="grid_4 series">
+						<a href="/media/{parents:url_title}">
+							{if parents:media-img}<img src="{parents:media-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+						</a>
+					</div>
+					
+				{/parents}
+			{if:else}
+				<div class="grid_4 series">
+					<a href="/study/{url_title}">
+						{if series-img}<img src="{series-img:med}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+					</a>
+				</div>
+			{/if}
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	</div>
+{if:elseif segment_2 == "lifestream"}
+	<div class="title-bar media-title">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Lifestream</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container media clearfix">
+		{exp:channel:entries channel="series" category="37" sort="desc" orderby="series-start" dynamic="no"}
+			<div class="grid_4 series">
+				<a href="/study/{url_title}">
+					{if series-img}<img src="{series-img:med}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+				</a>
+			</div>
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	</div>
+{if:else}
+	{exp:channel:entries channel="series" url_title="{if segment_2!="lifestream"}{segment_2}{/if}" dynamic="yes" limit="1"}
+		{if {parents:total_results} == "1"}
+			{!-- This redirects if there's only 1 entry in study --}
+			{parents channel="media" sort="desc" orderby="media-date"}
+				{redirect="/media/{parents:url_title}"}
+			{/parents}
+		{/if}
+		<?php 
+			/* Get the series data */
+			$theseries = "{url_title}";
+		?>
+	
+		<div class="title-bar media-title" {if series-color}style="background-color:{series-color}"{/if}>
+			<div class="container mobile-media">
+				<div class="grid_12">
+					<h2 class="series-title" {categories}{if category_id=="22"}style="text-transform:none"{/if}{/categories}>{title}
+						{if '{series-start format="%Y%m"}' != '{series-end format="%Y%m"}'}
+							<span>{series-start format="%F %Y"} {if series-end}- {series-end format="%F %Y"}{/if}</span>
+						{if:elseif '{series-start format="%Y%m"}' == '{series-end format="%Y%m"}'}
+							<span>{series-start format="%F %Y"}</span>
+						{/if}
+					</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	
+		<div class="container media clearfix">
+			{if no_results}{redirect="media/index"}{/if}
+			
+			{if series-desc}
+				<div class="grid_8">
+					{if series-img}<img src="{series-img:full}" alt="{title}">{if:else}<img src="/_img/media/_full/BROKEN.png" alt="{title}">{/if}
+				</div>
+				<div class="grid_4 series-details">
+					<h2>About this series</h2>
+					<p>{series-desc}</p>
+				</div>
+				<div class="clear"></div>
+			{if:else}
+				<div class="grid_12">
+					{if series-img}<img src="{series-img:full}" alt="{title}">{if:else}<img src="/_img/media/_full/BROKEN.png" alt="{title}">{/if}
+				</div>
+			{/if}
+		</div>
+		
+		{!-- Other Experiences --}
+		{embed="_component/media-series" series="<?=$theseries?>"}
+		
+	{/exp:channel:entries}
+	
+{/if}
+
+{embed="_includes/footer"}

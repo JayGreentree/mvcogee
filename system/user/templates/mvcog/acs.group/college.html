@@ -1,0 +1,18 @@
+{exp:acs_bridge:small_groups parent_id="138" show_closed="no" orderby="SGName"}
+	<div class="group-entry">
+		{if PublicGroup != "Y"}
+			<div class="closedgroup">
+		{/if}
+				<h3>{SGName}</h3>
+				<p class="groups-date">{if {current_time format='%m%d%Y'} >= {StartDate format='%m%d%Y'}}Begins{if:else}Began{/if} on {StartDate format="%F %j"}</p>
+				<div class="groups-info">
+					{if Description != "We apologize. This group is currently at maximum capacity."}
+						<p>{exp:word_limit total="60"}{Description}{/exp:word_limit}</p>
+						<a href="/groups/details/{GroupID}" {if PublicGroup != 'Y'}style="display:none"{/if}><button class="no-margin-l">Get details</button></a>
+					{/if}
+				</div>
+		{if PublicGroup != "Y"}
+			</div>
+		{/if}
+	</div>
+{/exp:acs_bridge:small_groups}

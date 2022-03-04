@@ -1,0 +1,23 @@
+{embed="_includes/header" title="Our Cultural Values" bar="yes"}
+
+{exp:channel:entries channel="pages" url_title="values" limit="1"}
+	<div class="title-bar about-alt">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Our Cultural Values</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<div class="container clearfix">
+		<div class="grid_8 fancy-page">
+			{page-body}
+		</div>
+		<div class="grid_4">
+			{embed="_component/sidebar-about"}
+		</div>
+	</div>
+{/exp:channel:entries}
+
+{embed="_includes/footer"}

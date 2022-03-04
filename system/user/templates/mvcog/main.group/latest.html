@@ -1,0 +1,31 @@
+{embed="_includes/header" bar="no" title="Latest News and Updates"}
+	<div id="latest" class="container fancy-page">
+		<img src="/_img/whatshappening.png" align="left">
+		<h2>What's Happening</h2>
+	</div>	
+	
+	<div class="container clearfix latest-ind">
+	{exp:channel:entries channel="Planning" show_future_entries="yes" orderby="planning-event_date" stop_before="+60 day" sort="asc" dynamic="no"}
+		{if planning-approved == "Yes" && planning-blurb != ""}
+			<div class="grid_12">
+				{if planning-img}
+					<div class="grid_2 alpha">
+						<img src="{planning-img}">
+					</div>
+					<div class="grid_10 omega">
+						<h3 style="font-family:'aleoregular',Georgia,serif;font-size: 22px;color:#707170;">{title}</h3>
+						<h4 style="margin-bottom:10px">{planning-event_date format="%F %j, %Y"}</h4>
+						{planning-blurb}
+					</div>
+				{if:else}
+					<h3 style="font-family:'aleoregular',Georgia,serif;font-size: 22px;color:#707170;">{title}</h3>
+					<h4 style="margin-bottom:10px">{planning-event_date format="%F %j, %Y"}</h4>
+					{planning-blurb}
+				{/if}
+			</div>
+			<div class="clear"></div>
+			<br>
+		{/if}
+	{/exp:channel:entries}
+	</div>
+{embed="_includes/footer"}

@@ -1,0 +1,24 @@
+{embed="_includes/header" title="The History of Our House" bar="yes"}
+<div class="title-bar about-ourhouse">
+	<div class="container">
+		<div class="grid_12">
+			<img src="/_img/house.png" style='margin-top:20px'>
+			<h2>The History of Our House</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_8 fancy-page">
+		{exp:channel:entries channel="Pages" url_title="about"}
+			{page-body}
+		{/exp:channel:entries}
+	</div>
+	<div class="grid_4">
+		{embed="/_component/sidebar-about"}
+	</div>
+	<div class="clear"></div>
+</div>
+
+{embed="_includes/footer"}

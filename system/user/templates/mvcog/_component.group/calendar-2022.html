@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Upcoming Events Widget</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		    <link rel="stylesheet" href="/_css/base.css">
+    <link rel="stylesheet" href="/_css/grid.css">
+
+    <link rel='stylesheet' media='screen and (min-width: 768px)' href='/_css/full.css'/>
+    <link rel='stylesheet' media='screen and (max-width: 767px)' href='/_css/mobile.css'/>
+    <!--[if lt IE 9]><link href='/_css/full.css' rel='stylesheet'/><![endif]-->
+
+    <link rel="stylesheet" href="/_css/style.css"> 
+    <link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'> 
+		<link href="/_css/jquery.tl.upcoming.css" rel="stylesheet" type="text/css" />
+
+		<script src="/_js/jquery-1.5.1.js" type="text/javascript"></script>
+		<script src="/_js/jquery.tl.upcomingevents.js" type="text/javascript"></script>
+		<script>
+			$(function(){
+				
+				var loadEvents = function(){
+					$("#upcoming-events").empty();
+					
+					$('#upcoming-events').upcomingEvents({ 
+						pageSize: $('#perpage').val(),
+						orgSlug: $('#orgslug').val(),
+						apiUrl: $('#endpoint').val(),
+						apiKey: $('#apikey').val()
+					 });
+				};
+				
+				$('#loadevents').submit(function(evt){
+					evt.preventDefault();
+					loadEvents();
+				});
+				
+				loadEvents();
+				
+			});
+		</script>
+	</head>
+	<body>
+		<form id="loadevents">
+			<table border="0" cellpadding="5" style="margin: 0 0 20px 0;">
+				<tr>
+					<td>Organization Slug: </td>
+					<td><input id="orgslug" type="text" value="mvcog" style="width: 300px;" /></td>
+				</tr>
+				<tr>
+					<td>Page Size:</td>
+					<td><input id="perpage" type="text" value="5" style="width: 300px;" /></td>
+				</tr>
+				<tr>
+					<td>API Endpoint:</td>
+					<td><input id="endpoint" type="text" value="http://public-api.ticketleap.com/" style="width: 300px;" /></td>
+				</tr>
+				<tr>
+					<td>API Key:</td>
+					<td><input id="apikey" type="text" value="efee47cc-75b2-4db8-8a40-5ee20af9e4f1" style="width: 300px;" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><button type="submit">Load Events</button></td>
+				</tr>
+			</table>
+		</form>
+		<div id="upcoming-events"></div>
+	</body>
+</html>

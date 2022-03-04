@@ -1,0 +1,51 @@
+{embed="_includes/header" title="Calendar"}
+
+<!--link type="text/css" rel="stylesheet" href="/_js/acs/calendar.css" />
+<link type="text/css" rel="stylesheet" href="/_js/acs/custom_1.css" /-->
+
+<script src="/_js/jquery.tl.upcomingevents.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        $('#upcoming-events').upcomingEvents({
+            orgSlug: 'mvcog',
+            pageSize: 5,
+            apiKey: '3550530387544812'
+        });
+
+    });
+</script>
+<script>
+    $(function() {
+
+        var loadEvents = function() {
+            $("#upcoming-events").empty();
+
+            $('#upcoming-events').upcomingEvents({
+                pageSize: $('#perpage').val(),
+                orgSlug: $('#orgslug').val(),
+                apiUrl: $('#endpoint').val(),
+                apiKey: $('#apikey').val()
+            });
+        };
+
+        $('#loadevents').submit(function(evt) {
+            evt.preventDefault();
+            loadEvents();
+        });
+
+        loadEvents();
+
+    });
+</script>
+
+<div class="container clearfix">
+    <div id="upcoming-events"></div>
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+
+{embed="_includes/footer"}

@@ -1,0 +1,34 @@
+<br>
+<div id="full-only">
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no" url_title="{embed:url}"}
+		{if segment_2 != "first-words"}
+			<a href="{path='devos'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp;{title}</strong></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no" url_title="{embed:url}"}
+		{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
+		<a href="{path='devos'}"><strong>{title} &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+	{/exp:channel:next_entry}
+	
+	<a href="/devos" class="pull-right"><strong>Main Devos Page</strong></a>
+</div>
+<div id="mobile-only" class="mobile-nav">
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
+		{if segment_2 != "first-words"}
+			&nbsp;<a href="{path='devos'}" style="font-size:36px;"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></strong></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no"}
+		&nbsp;<a href="{path='devos'}" class="pull-right" style="font-size:36px;padding-right:10px"><strong><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+	{/exp:channel:next_entry}
+	<br>
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
+		{if segment_2 != "first-words"}
+			<a href="{path='devos'}"><small>Previous</small></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no"}
+		<a href="{path='devos'}" class="pull-right" style="padding-right:10px"><small>Next</small></a>
+	{/exp:channel:next_entry}
+</div>
+<hr>

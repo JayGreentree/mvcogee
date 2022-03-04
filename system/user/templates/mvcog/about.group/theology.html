@@ -1,0 +1,34 @@
+{embed="_includes/header" title="Theology" bar="yes"}
+
+<div class="title-bar about-alt">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Theology</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_12 banner">
+		<span data-picture data-alt="Our Theology">
+			<span data-src="/_img/theology-small.png"></span>
+			<span data-src="/_img/theology.png" data-media="(min-width: 465px)"></span>
+
+			<!-- Fallback content for non-JS browsers -->
+			<noscript><img src="/_img/theology-small.png" alt="Our Theology"></noscript>
+		</span>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="grid_8 fancy-page">
+		{exp:channel:entries channel="Pages" url_title="theology" limit="1"}
+			{page-body}
+		{/exp:channel:entries}
+	</div>
+	<div class="grid_4">
+		{embed="_component/sidebar-about"}
+	</div>
+</div>
+
+{embed="_includes/footer"}

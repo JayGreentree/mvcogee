@@ -1,0 +1,40 @@
+<style>
+	body {margin:0;}
+
+	/* Responsive embeds */
+	.embed-responsive {
+	  position: relative;
+	  display: block;
+	  height: 0;
+	  padding: 0;
+	  overflow: hidden;
+	}
+	.embed-responsive-16by9 {
+	  padding-bottom: 56.25%
+	}
+	.embed-responsive .embed-responsive-item, .embed-responsive embed, .embed-responsive iframe, .embed-responsive object, .embed-responsive video {
+	  position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  border: 0;
+	}
+</style>
+
+	{exp:channel:entries channel="Media" category="9" limit="1" orderby="media-date" sort="desc"}
+		{if media-video}
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+		</div>
+		<div class="clear"></div>
+		{!-- YouTube --}
+		{if:elseif media-youtube}
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="clear"></div>
+		{/if}
+	{/exp:channel:entries}
+	<div class="clear"></div>

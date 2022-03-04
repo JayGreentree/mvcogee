@@ -1,0 +1,97 @@
+{embed="_includes/header" title="Locations" bar="yes"}
+<meta name="Description" content="We are a house with many locations. This house represents the family of God established on earth to be planted together in our cities to experience biblical community and to do the work of the believers.">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      #map { height: 300px }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7CvzPYti_nAGIvXZtKKFQ5toKsohyo5I"></script>
+
+<div class="title-bar" style="margin:0">
+	<div class="container">
+		<div class="grid_12">
+			<h2>{if segment_2 == ""}All Locations{if:else}{exp:channel:entries channel="location" dynamic="on"}{title}{/exp:channel:entries}{/if}</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div id="map"/></div>
+
+<div class="container clearfix">
+	<div class="extra-margin">
+		{exp:channel:entries channel="location" sort="asc"}
+			<div class="grid_6 location-details">
+				<h2>{title}</h2>
+				{!--}<h3>Campus Pastor: {location-pastor:title}</h3>{--}
+				<p><i class="fa fa-clock-o"></i> {location-times}</p>
+				<p><i class="fa fa-map-marker"></i> {location-address}<br><a href="http://maps.google.com/?q={location-address}" target="_blank">(get directions)</a></p>
+				<p><i class="fa fa-phone"></i> {location-phone}</p>
+				<p><i class="fa fa-desktop"></i> {location-email}</p>
+        <p><i class="fa fa-envelope-o"></i> </i> {location-mail}</p>
+			</div>
+		{/exp:channel:entries}
+		<div class="clear"></div>
+		<div class="grid_12">
+			<br><br>
+			{if service_live == "true"}
+				<h2 style="text-align:center"><a href="http://live.journeychurch.tv">Join us live online right now!</a></h2>
+			{if:else}
+				<h3>Can't join us in person?</h2>
+				<p><strong><a href="http://live.journeychurch.tv" target="_blank">Join us live online</a> during all of our live experiences.</strong></p>
+			{/if}
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+  var locations = [
+  		{exp:channel:entries channel="location"}
+        	['<h2>{title}</h2><p>{location-times}</p><p>{location-phone}</p>', '{location-lat}', '{location-long}', 4],
+		{/exp:channel:entries}
+      ];
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: new google.maps.LatLng(34.614520, -112.322520),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+      var markers = new Array();
+
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
+        });
+
+        markers.push(marker);
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          };
+		  setTimeout(function(){$("img[src$='iws3.png']").hide();},80);
+        })(marker, i));
+      }
+
+      function AutoCenter() {
+        //  Create a new viewpoint bound
+        var bounds = new google.maps.LatLngBounds();
+        //  Go through each...
+        $.each(markers, function (index, marker) {
+       		bounds.extend(marker.position);
+        });
+        //  Fit these to the map
+        map.fitBounds(bounds);
+      }
+      //AutoCenter();
+      map.panTo(marker.getPosition());
+</script>
+
+
+{embed="_includes/footer"}

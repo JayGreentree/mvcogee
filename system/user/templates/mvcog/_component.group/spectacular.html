@@ -1,0 +1,45 @@
+<style>
+    body {
+        margin: 0;
+    }
+</style>
+{if service_live == "true"} {!-- This is for EVERYTHING ELSE like Sunday evenings or Lifestream - use 'Akamai LIVE' on encoder --}
+<iframe src='http://www.streammonkey.com/iframe/1482' width='480' height='270' frameborder='0'></iframe> {if:else}
+<iframe src='http://www.streammonkey.com/iframe/1510' width='480' height='270' frameborder='0'></iframe> {!-- Changed my mind}
+<script type="text/javascript" src="/_js/jwplayer.js"></script>
+<script type="text/javascript">
+    jwplayer.key = "kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";
+</script>
+<div style="max-width:650px!important">
+    <div id="vid{entry_id}">
+        <iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/8O9Nyy0fWF0" frameborder="0"></iframe>
+    </div>
+</div>
+<script type="text/javascript">
+    jwplayer("vid{entry_id}").setup({
+        'autostart': 'false',
+        'height': '360px',
+        'width': '100%',
+        'menu': 'false',
+        'aspectratio': '16:9',
+        'file': 'http://www.youtube.com/watch?v=8O9Nyy0fWF0?hd=1',
+        'image': '/_img/media/christmasSpectacular.png',
+        'abouttext': 'JourneyChurch.tv Media',
+        'aboutlink': '/media',
+        'plugins': {
+            'gapro-2': {
+                accountid: "UA-23134458-1",
+                trackstarts: true,
+                trackpercentage: true,
+                tracktime: true
+            }
+        },
+        'modes': [{
+            'type': 'flash',
+            'src': '/_js/jwplayer.flash.swf'
+        }]
+    });
+</script>
+<div class="clear"></div>{--}
+<div class="clear"></div>
+{/if}

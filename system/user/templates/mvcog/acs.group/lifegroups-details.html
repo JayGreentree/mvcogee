@@ -1,0 +1,23 @@
+{exp:acs_bridge:small_group_detail}
+	<h2>{SGName}</h2>
+	{if Topic}
+		<p><strong>Topic/Curriculum:</strong> {Topic}</p>
+		<br>
+	{/if}
+	{if Description}
+		<p>{Description}</p>
+	{/if}
+	<br>
+	{if Location}
+		<p><i class="fa fa-map-marker"></i> {Location} {if City}in {City} {State}{/if}</p>
+	{/if}
+	<p><i class="fa fa-clock-o"></i> Meets {MeetingFreq} on {MeetingDay} from {StartTime format="%g:%i%a"} to {EndTime format="%g:%i%a"}.</p>
+	{if ChildCare == 'y'}
+		<p>Childcare is provided.</p>
+	{/if}
+	{if Webpage}
+		<p>Connect with this group: {Webpage}</p>
+	{/if}
+	<br>
+	<a href="#" onclick="window.open('https://secure.accessacs.com/access/groups/sgcontactrequest.aspx?grp={groupid}','popup','width=960,height=500,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false"><button class="no-margin-l">Request Info</button></a>
+{/exp:acs_bridge:small_group_detail}

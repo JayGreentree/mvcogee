@@ -1,0 +1,142 @@
+<style type="text/css">
+    body {
+        margin: 0 20px!important;
+        width: 2000px;
+        overflow-x: scroll;
+    }
+    
+    #loggedout {
+        background-color: rgb(49, 49, 49);
+    }
+</style>
+
+<script type="text/javascript">
+    var datalog = "";
+    var consolelogtime;
+
+    // Use this one for bug reporting
+    console = {
+        log: function(data) {
+            datalog = datalog + data + "\n";
+        }
+    };
+
+    $(document).ready(function() {
+        InitializeScreennameHeader();
+        InitializeLoginClickHandlers();
+        document.cookie = "jrnych_screenname={screen_name}";
+    });
+
+    function ee_logout() {
+        document.cookie = 'jrnych_screenname=; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0';
+        $.ajax({
+            url: "/?ACT=16",
+            complete: function() {
+                window.location.reload(true);
+            }
+        });
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    // Update logged in header info from cookie
+    function InitializeScreennameHeader() {
+        var username = getCookie("jrnych_screenname");
+        if (username != "") {
+            $("#logged_status").html('<p id="logged-in">' + username + ' - <a onclick="javascript:ee_logout();" class="logout">Log Out</a></p>');
+        } else {
+            $("#logged_status").html('<a class="user-login" href="#login-register-box">Login</a>');
+            $(window).load(function() {
+                $('#loggedout').modal({
+                    backdrop: 'static',
+                    keyboard: true
+                });
+            });
+        }
+    }
+
+    function InitializeLoginClickHandlers() {
+        $(".logout").click(function() {
+            $.ajax({
+                url: "/index.php?ACT=16",
+                complete: function() {
+                    window.location.reload(true);
+                }
+            });
+            return false;
+        });
+
+        $(".login_form").submit(function() {
+            var values = $(this).serialize();
+            $.ajax({
+                url: '/index.php?ACT=15',
+                type: 'POST',
+                data: values,
+                success: function(data) {
+                    var pos = data.indexOf("<title>Error");
+                    var titlePos = data.indexOf("<title>");
+                    $('.modal-body').html("You are currently being logged in.");
+                    window.location.reload(true);
+                }
+            });
+
+            return false;
+        });
+    }
+</script>
+
+<div class="modal fade" id="loggedout" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="accordion" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div id="normallogin" class="panel-collapse collapse in" data-parent="#accordion">
+                {exp:member:login_form form_class="login_form" return="
+                <?php echo $_SERVER['HTTP_REFERER']; ?>"}
+                <div class="modal-body">
+                    <div id="normallogin" class="collapse in">
+                        <label>Username</label><br>
+                        <input type="text" name="username" value="" maxlength="40" size="40" class="form-control">
+                        <br>
+                        <label>Password</label><br>
+                        <input type="password" name="password" value="" maxlength="40" size="40" class="form-control">
+                        <br>
+                        <p data-toggle="collapse" data-target="#forgotpass">
+                            Forgot your password?
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                </div>
+                {/exp:member:login_form}
+            </div>
+            <div id="forgotpass" class="panel-collapse collapse" data-parent="#accordion">
+                <form id="forgot_password_form" method="post" action="/">
+                    <div class="modal-body">
+                        <div class="hiddenFields">
+                            <input type="hidden" name="XID" value="bd77593c46c41e84e3687c57bd38e6be76ec691e">
+                            <input type="hidden" name="ACT" value="17">
+                            <input type="hidden" name="FROM" value="">
+                            <input type="hidden" name="site_id" value="1">
+                        </div>
+                        <label>Email Address</label>
+                        <p><input type="text" name="email" value="" maxlength="40" size="40" class="form-control"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

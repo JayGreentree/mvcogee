@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+
+		<meta name="description" content="Share a story about how your life has been changed">
+		<meta name="keywords" content="Stories Jesus Life Change Journey Church Norman OK">
+
+		<title>Stories - What's Your Story?</title>
+
+		{!-- Stylesheets --}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<link rel="stylesheet" href="/_css/stories/style.css" type='text/css'>
+
+		{!-- Fonts --}
+		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/688704/css/fonts.css" />
+
+		{!-- Font Icons --}
+		<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
+	</head>
+	<body>
+		<form id="stories-form" action="/_scripts/stories/submit.php" method="post">
+			<section id="cover" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2"><img src="/_img/stories/bottle.png" class="img-responsive"/></div>
+							<div class="col-sm-8 col-sm-offset-2">
+								<h1>Stories</h1>
+								<br><br><br><br><br>
+								<h3>Made to be told.</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{!--}<section id="vid" class="bg-img">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-10 col-sm-offset-1">
+								<div class="vid-responsive"><iframe id="stories-vid" src="http://www.youtube.com/embed/Ah0uydqMYhE?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>{--}
+
+			<section id="intro" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<p>Each day defines and molds us. They become our milestones...the stories of our lives.<br><br>It is a wonderful thing to remember, recall, and retell the highs and lows of those milestones.<br><br>By hearing the stories of others we are reminded we’re not alone. The foundation of our faith is strengthened, and we are challenged to deepen that faith. Take that challenge and tell your story today.</p><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="name" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="name">What is your name?</label><br>
+								<input name="name" type="text" placeholder="First Last" required="required" maxlength="70" form="stories-form" class="light"/><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="beginning" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="beginning">Where does your story begin? Describe that season…</label><br>
+								<textarea name="beginning" rows="5" maxlength="1200" required="required" form="stories-form" class="light" placeholder="Type Here..."></textarea><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="persevered" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="persevered">Can you further describe how you persevered during that season?</label><br>
+								<textarea name="persevered" rows="5" maxlength="1200" required="required" form="stories-form" class="light" placeholder="Type Here..."></textarea><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="growth" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="growth">How did that season change you and impact your story? Where were you before? Where are you now?</label><br>
+								<textarea name="growth" rows="5" maxlength="1200" required="required" form="stories-form" class="light" placeholder="Type Here..."></textarea><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{!--}<section id="thanks" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="thanks">How would you thank God for His provision and/or guidance during this time?</label><br>
+								<textarea name="thanks" rows="5" maxlength="1200" required="required" form="stories-form" class="light" placeholder="Type Here..."></textarea><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>{--}
+
+			<section id="email" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<label for="email">What is your email address?</label><br>
+								<input name="email" type="email" placeholder="person@email.com" required="required" maxlength="55" form="stories-form" class="light"/><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="share" class="bg-img text-center">
+				<div class="inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div id="invalid"></div>
+								<button type="submit" name="storySubmit" form="stories-form" class="btn btn-default btn-block">Share My Story</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</form>
+
+		<nav>
+			<div class="arrow arrow-up">
+				<i class="fa fa-angle-up"></i>
+			</div>
+
+			<div class="arrow arrow-down">
+				<i class="fa fa-angle-down"></i>
+			</div>
+		</nav>
+
+		{!-- Jquery --}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+		{!-- Validation --}
+		<script type="text/javascript" src="/_js/jquery.validate.js"></script>
+
+		{!-- Latest compiled and minified JavaScript --}
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		{!-- Stories Javascript --}
+		<script src="/_js/stories/stories.js"></script>
+	</body>
+</html>

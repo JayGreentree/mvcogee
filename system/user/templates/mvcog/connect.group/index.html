@@ -1,0 +1,149 @@
+{embed="_includes/header" title="{if segment_2 ==''}Get Connected{if:else}{exp:channel:entries channel='Connect' dynamic='on' require_entry='yes'}{title}{/exp:channel:entries}{/if}" bar="yes"}
+
+<style type="text/css">
+	:target {
+	    -webkit-animation: target-fade 3s 1;
+	    -moz-animation: target-fade 3s 1;
+	}
+
+	@-webkit-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+	@-moz-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+</style>
+{if segment_2 == ""}
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Get Connected</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="fancy-page">
+			<div class="grid_12">
+				<h2>JourneyChurch is a community filled with opportunity to get involved and connect with others. We'd love to help you get connected in a big way! We have created many different and unique connection opportunities:</h2><br>
+			</div>
+
+			<div class="grid_4 side-verse">
+				<div>
+					<h2>Psalm 92:12-13</h2>
+					<p>The righteous will flourish like a palm tree, they will grow like a cedar of Lebanon; planted in the house of the Lord, they will flourish in the courts of our God.</p>
+				</div>
+			</div>
+			<div class="grid_8">
+				<div class="connect-entry">
+					{exp:channel:entries channel="Connect" orderby="title" sort="asc" limit="2"}
+							{if "{categories}{category_id}{/categories}" != "62"}
+								<h3><a href="/connect/{url_title}">{title}</a></h3>
+							{if:else}
+								<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
+							{/if}
+						<p>{connect-desc}</p>
+						<br>
+						<div class="clear"></div>
+					{/exp:channel:entries}
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="grid_8">
+				{exp:channel:entries channel="Connect" orderby="title" sort="asc" offset="2"}
+					<div class="connect-entry">
+						{if "{categories}{category_id}{/categories}" != "62"}
+							<h3><a href="/connect/{url_title}">{title}</a></h3>
+						{if:else}
+							<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
+						{/if}
+						<p>{connect-desc}</p>
+						<div class="clear"></div>
+					</div>
+				{/exp:channel:entries}
+			</div>
+			<div class="grid_4 side-verse side-verse-alt">
+				<div>
+					<p>As followers of Christ, we must, like a tree, be planted with strongly connected roots to grow and be spiritually healthy. As part of the family at JourneyChurch, we are connected to God and each other as we serve, live in community, pray, give, and invite others to be a part of our church family.</p>
+					<p>At JourneyChurch, there are dozens of ways to get connected across all ages and stages of life. Your role is to choose from the many connection opportunities and take your first step of getting planted!</p>
+					<p>If you want help or more information, all you have to do is ask. At <a href="/locations">all locations</a>, the Connection Center is a place for answers, assistance and more. Of course you can always <a href="mailto:connect@journeychurch.tv">email connect@JourneyChurch.tv</a> or call as well. No matter the path, we are here to help you connect and get planted as we honor God, build healthy relationships and have a blast together!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{if:else}
+	{exp:channel:entries channel="Connect" dynamic="on" require_entry="yes"}
+		{if connect-logo}
+			<div class="container clearfix">
+				{if entry_id == "211"}
+					{!-- Creative Journey Video --}
+
+					<div class="grid_12">
+						<div class="vid-responsive">
+							<iframe src="https://www.youtube.com/embed/NSYvr-WtnzI" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<style>
+						.vid-responsive {
+							position: relative;
+							padding-bottom: 56.25%;
+							height: 0;
+							overflow: hidden;
+							max-width: 100%;
+							margin-bottom:30px;
+						}
+
+						.vid-responsive iframe, .vid-responsive object, .vid-responsive embed {
+							position: absolute;
+							top: 0; left: 0;
+							width: 100%;
+							height: 100%;
+						}
+					</style>
+				{if:else}
+				<img src="{connect-logo}" class="connect-logo">
+				{/if}
+				<div class="clear"></div>
+			</div>
+		{if:else}
+			<div class="title-bar">
+				<div class="container">
+					<div class="grid_12">
+						<h2>{title}</h2>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		{/if}
+		<div class="container clearfix">
+			<div class="grid_12 fancy-page">
+			{connect-body}
+			</div>
+		</div>
+		<div class="container clearfix">
+			{connect-grids}
+				<div class="grid_6 fancy-page">
+					<div class="grid-left">{connect-grids:connect_lefthalf}</div>
+				</div>
+				<div class="grid_6 fancy-page">
+					<div class="grid-right">{connect-grids:connect_righthalf}</div>
+				</div>
+			{/connect-grids}
+		</div>
+
+		{embed="_component/connect-cats" title="{title}" catid="{if segment_2=='college-journey'}89{/if}"}
+
+		<div class="container clearfix">
+			<div class="grid_12 fancy-page">
+			{connect-bodybtm}
+			</div>
+		</div>
+	{/exp:channel:entries}
+{/if}
+{embed="_includes/footer"}

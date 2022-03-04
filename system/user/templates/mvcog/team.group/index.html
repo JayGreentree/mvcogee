@@ -1,0 +1,136 @@
+{embed="_includes/header" title="{if segment_2 == ''}Meet the Team{if:else}{exp:channel:entries channel="team" dynamic="on" limit="1"}{title}{/exp:channel:entries}{/if}" bar="yes"}
+
+{if segment_2 == ""}
+<div class="title-bar">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Meet the Team</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<h2 class="grid_12 pastorclark">Clark Mitchell <span>Founding Senior Pastor</span></h2>
+	<div class="team-entry" style="padding-top:25px">
+		<div class="grid_4">
+			<img src="/_img/PastorClark.jpg">
+		</div>
+		<div class="grid_8">
+			<p style="font-size:14px;margin-top:20px">At age 15, Clark Mitchell knew God was shaping his desire to help lead people into their God-given potential and dreams. It was that same dream and passion that motivated him to begin JourneyChurch with his wife and 34 others in late 2001. As the church continued to see unprecedented favor in leading the next generation, Pastor Clark continued to look for innovative ways to transform cities one life at a time. Ten years after founding JourneyChurch, Clark and Robin began Loveworks Leadership, Inc. (LLI) Again, the initiative was met with unprecedented enthusiasm as LLI created environments for at-risk middle school students to receive academic tutoring, life skills training, and leadership development to give them hope and to shape their character to become the leaders they were created to be.</p><br>
+			<a href="/pastorclark">Learn more about Pastor Clark</a>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="clear marg-b-40">&nbsp;</div>
+
+	<div class="grid_12">
+	{exp:channel:entries channel="team" entry_id="170|2299" orderby="team-sort"}
+		<div class="grid_6 alpha">
+			<div class="team-entry">
+				{if team-photo}
+					<a href="/team/{url_title}"><img src="{team-photo}" style="max-width:250px;"></a>
+				{/if}
+				<br><br>
+				<h3>
+					<a href="/team/{url_title}">{title}</a>
+					<span style="display:block">{team-title}</span>
+				</h3>
+				{if team-bio}
+					<p>
+						{exp:word_limit total="20"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a>
+					</p>
+				{/if}
+				<p style="margin-top:10px">
+					<span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>
+				</p>
+				<div class="clear"></div>
+			</div>
+		</div>
+	{/exp:channel:entries}
+	</div>
+
+	<div class="grid_12">
+		<div id="God" class="grid_12">
+			<div class="team-entry">
+				<h3>God</h3>
+				<p>For who is God besides the LORD? And who is the Rock except our God? It is God who arms me with strength and makes my way perfect. He makes my feet like the feet of a deer; he enables me to stand on the heights. <small>Psalm 18:31-33</small></p>
+				<div class="clear"></div>
+			</div>
+		</div>
+		{exp:channel:categories channel="Team" style="linear" show="not 75"}
+			{if "{parent_id}" != 0}
+				{if category_description}<a href="{category_description}">{/if}<h3 style="border-bottom:1px solid #E6E6E6;font-size:18px;text-transform:none;margin-top:20px">{category_name} <i class="fa fa-chevron-right pull-right"></i></h3>{if category_description}</a>{/if}
+
+				{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}" entry_id="not 170"}
+					<div class="grid_6 alpha">
+						<div class="team-entry">
+							{if team-photo}
+								<a href="/team/{url_title}"><img src="{team-photo}" style="max-width:250px;"></a>
+							{/if}
+							<br><br>
+							<h3>
+								<a href="/team/{url_title}">{title}</a>
+								<span style="display:block">{team-title}</span>
+							</h3>
+							{if team-bio}
+								<p>
+									{exp:word_limit total="20"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a>
+								</p>
+							{/if}
+							<p style="margin-top:10px">
+								<span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>
+							</p>
+							<div class="clear"></div>
+						</div>
+					</div>
+					{switch="|<div class='clear'></div>"}
+				{/exp:channel:entries}
+				<div class="clear"></div>
+			{/if}
+		{/exp:channel:categories}
+		<div class="clear marg-b-40">&nbsp;</div>
+		{!--}<h3 style="font-size:22px;text-align:center"><a href="/team/pastors">Looking for a pastor to connect with in your age demographic? <small>Click here.</small></a></h3>{--}
+	</div>
+</div>
+{if:else}
+	{exp:channel:entries channel="team" sort="asc" orderby="team-sort" url_title="{segment_2}"}
+		<div class="title-bar">
+			<div class="container">
+				<div class="grid_12">
+					<h2>{title} <span>{team-title}</span></h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div class="container clearfix">
+			<div class="grid_4 alpha">
+				<br>
+				<img src="{team-photo}" style="max-width:100%;">
+			</div>
+			<div class="grid_7 omega">
+				<br>
+				<p style="margin-bottom:10px">{team-bio}</p>
+				<p><span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>{if team-fb} | <span class="fa fa-facebook"></span> <a href="http://www.facebook.com/{team-fb}" target="_blank">{team-fb}</a>{/if}{if team-twitter} | <span class="fa fa-twitter"></span> <a href="http://twitter.com/{team-twitter}" target="_blank">@{team-twitter}</a>{/if}{if team-instagram} | <span class="fa fa-instagram"></span> <a href="http://www.instagram.com/{team-instagram}" target="_blank">{team-instagram}</a>{/if}</p>
+				<div class="clear"></div>
+			</div>
+		</div>
+		{if entry_id == "162"}
+			<script type="text/javascript">
+			setTimeout(function() {
+				window.location.href = "http://www.playretrogames.com/1166-space-invaders";
+			}, 4000);
+			</script>
+		{/if}
+		{if entry_id == "164"}
+			<script type="text/javascript">
+			setTimeout(function() {
+				window.location.href = "http://www.playretrogames.com/2107-ultimate-mortal-kombat-3";
+			}, 4000);
+			</script>
+		{/if}
+	{/exp:channel:entries}
+{/if}
+
+{embed="_includes/footer"}

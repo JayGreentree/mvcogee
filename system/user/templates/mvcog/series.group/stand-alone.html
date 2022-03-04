@@ -1,0 +1,32 @@
+{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='series' dynamic='on' limit='1'}{title}{/exp:channel:entries}{if:else}Series{/if}" bar="yes"}
+<div class="title-bar">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Stand Alone Series</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+	{exp:channel:entries channel="series" url_title="{segment_2}" dynamic="yes" limit="1"}
+		<div class="container media clearfix">
+			<div class="grid_12">
+				<samp>These are stand alones. We'll describe what all that means here</samp>
+			</div>
+		</div>
+		<div class="container series-sub clearfix">
+			<div class="clear"></div>
+			{parents channel="media" sort="asc" orderby="media-date"}
+					<div class="grid_3 series-ind">
+						<a href="/media/{parents:url_title}">
+							<img src="{if parents:media-img}{parents:media-img:med}{if:elseif series-img}{series-img:med}{if:else}/_img/media/_med/BROKEN.png{/if}">
+							{parents:title}
+						</a>
+					</div>
+			{/parents}
+		</div>
+	{/exp:channel:entries}
+	
+{/if}
+
+{embed="_includes/footer"}
